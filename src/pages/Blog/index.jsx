@@ -23,7 +23,6 @@ const Blog = () => {
         <Link to="/" className="blog-goBack">
           <span>Go Back</span>
         </Link>
-
         {blog ? (
           <div className="blog-wrap">
             <header>
@@ -43,6 +42,7 @@ const Blog = () => {
               <img src={blog.authorAvatar} alt="avatar" />
               <div>
                 <h6>{blog.authorName}</h6>
+                <p>{blog.createdAt}</p>
               </div>
             </div>
           </div>
