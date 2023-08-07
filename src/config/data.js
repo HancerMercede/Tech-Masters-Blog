@@ -5,7 +5,7 @@ export const blogList = [
     category: "development",
     subCategory: ["frontend", "ui/ux", "design"],
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "CSS is getting more and more complicated to write. Thankfully, there are tools that make the task of authoring CSS a little bit easier. From identifying errors in your stylesheets to presenting useful stats about your code, these online tools will undoubtedly help during CSS development.",
     authorName: "Hancer Mercede",
     authorAvatar: "/assets/images/author.jpg",
     createdAt: "August 04, 2023",
@@ -90,7 +90,7 @@ export const blogList = [
     category: "Development",
     subCategory: ["Back-End", "Front-End", "Full-Stack"],
     description:
-      "Node.js is a framework for use js in back-end, with Node.js you can build modern web apps, RESTful APIs, mobile apps, and more, this a adventage for developers because they do not have to knnow other language to write code.",
+      "Node.js is a framework for use js in the back-end, with Node.js you can build modern web apps, RESTful APIs, mobile apps, and more, this is a advantage for developers because they don't have to know other language to write code.",
     authorName: "Hancer Mercede",
     authorAvatar: "/assets/images/author.jpg",
     createdAt: "June 27, 2023",
@@ -107,5 +107,17 @@ export const blogList = [
     authorAvatar: "/assets/images/author.jpg",
     createdAt: "June 31, 2023",
     cover: "/assets/images/CiberCity.jpg",
+  },
+  {
+    id: 10,
+    title: "React.js your best choice.",
+    category: "Development",
+    subCategory: ["Front-End", "Development", "Full-Stack"],
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    authorName: "Hancer Mercedes",
+    authorAvatar: "/assets/images/author.jpg",
+    createdAt: "August 05, 2023",
+    cover: "/assets/images/React.jpg",
   },
 ];

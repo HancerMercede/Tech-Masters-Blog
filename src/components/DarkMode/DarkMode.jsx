@@ -1,10 +1,13 @@
 import "./DarkMode.css";
+import Sun from "./Sun.jsx";
+import Moon from "./Moon.jsx";
 
 const DarkMode = () => {
   const setDarkMode = () => {
     document.querySelector("body").setAttribute("data-theme", "dark");
     localStorage.setItem("SelectedTheme", "dark");
   };
+
   const setLightMode = () => {
     document.querySelector("body").setAttribute("data-theme", "light");
     localStorage.setItem("SelectedTheme", "light");
@@ -29,7 +32,7 @@ const DarkMode = () => {
         className="dark_mode_input"
         defaultChecked={SelectedTheme === "dark"}
       />
-      <label htmlFor="darkmode-toggle" className="dark_mode_label"></label>
+      <label className="dark_mode_label" htmlFor="darkmode-toggle"></label>
     </div>
   );
 };
