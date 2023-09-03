@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 
 export const ThemeContext = createContext();
 
+// eslint-disable-next-line react/prop-types
 export const ThemeProvider = ({ children }) => {
   const setDarkMode = () => {
     document.querySelector("body").setAttribute("data-theme", "dark");
