@@ -4,7 +4,8 @@ import SearchBar from "../../components/Home/SearchBar";
 import BlogList from "../../components/Home/BlogList";
 import { blogList } from "../../config/data";
 import EmptyList from "../../components/common/EmptyList";
-
+import { ThemeProvider } from "../../components/DarkMode/Theme";
+import Darktheme from "../../components/DarkMode/darktheme";
 const Home = () => {
   const [blogs, setBlogs] = useState(blogList);
   const [searchkey, setSearchKey] = useState("");
@@ -35,17 +36,19 @@ const Home = () => {
   };
 
   return (
-    <div>
-      {/* <DarkMode /> */}
-      <Header />
-      <SearchBar
-        value={searchkey}
-        clearSearch={handleClearSearch}
-        formSubmit={handleSearchSubmit}
-        handleSearchKey={(e) => setSearchKey(e.target.value)}
-      />
-      {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} />}
-    </div>
+    <ThemeProvider>
+      <div>
+        <Header />
+
+        <SearchBar
+          value={searchkey}
+          clearSearch={handleClearSearch}
+          formSubmit={handleSearchSubmit}
+          handleSearchKey={(e) => setSearchKey(e.target.value)}
+        />
+        {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} />}
+      </div>
+    </ThemeProvider>
   );
 };
 
