@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import Chip from "../../../common/Chip";
 import "./styles.css";
 import { Link } from "react-router-dom";
 
 const BlogItem = ({
   blog: {
+    id,
     description,
     title,
     createdAt,
@@ -11,7 +13,6 @@ const BlogItem = ({
     authorAvatar,
     cover,
     category,
-    id,
   },
 }) => (
   <div className="blogItem-wrap">

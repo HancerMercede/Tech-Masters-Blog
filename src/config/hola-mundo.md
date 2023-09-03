@@ -11,6 +11,11 @@ createdAt: "August 04, 2023"
 cover: "/assets/images/designer-1.jpg"
 ---
 
-# Hola mundo
+#7 CSS tools you should be using
+![Descripción de la imagen][def]
 
-Hola esto es mi primer post escrito en Markdown.
+CSS is getting more and more complicated to write. Thankfully, there are tools that make the task of authoring CSS a little bit easier. From identifying errors in your stylesheets to presenting useful stats about your code, these online tools will undoubtedly help during CSS development.
+
+[def]: \public\assets\images\designer-1.jpg "Leyenda de la imagen"
+
+author: Hancer Mercede

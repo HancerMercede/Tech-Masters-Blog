@@ -4,7 +4,6 @@ import SearchBar from "../../components/Home/SearchBar";
 import BlogList from "../../components/Home/BlogList";
 import { blogList } from "../../config/data";
 import EmptyList from "../../components/common/EmptyList";
-import DarkMode from "../../components/DarkMode/DarkMode";
 
 const Home = () => {
   const [blogs, setBlogs] = useState(blogList);
@@ -37,7 +36,7 @@ const Home = () => {
 
   return (
     <div>
-      <DarkMode />
+      {/* <DarkMode /> */}
       <Header />
       <SearchBar
         value={searchkey}

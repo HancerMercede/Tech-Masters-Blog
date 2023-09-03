@@ -30,6 +30,7 @@ const Blog = () => {
               <h1>{blog.title}</h1>
               <div className="blog-subCategory">
                 {blog.subCategory.map((category, index) => (
+                  // eslint-disable-next-line react/jsx-key
                   <div>
                     <Chip key={index} label={category} />
                   </div>

@@ -1,6 +1,4 @@
 import "./DarkMode.css";
-import Sun from "./Sun.jsx";
-import Moon from "./Moon.jsx";
 
 const DarkMode = () => {
   const setDarkMode = () => {
@@ -32,6 +30,7 @@ const DarkMode = () => {
         className="dark_mode_input"
         defaultChecked={SelectedTheme === "dark"}
       />
+
       <label className="dark_mode_label" htmlFor="darkmode-toggle"></label>
     </div>
   );
