@@ -27,7 +27,7 @@ export const SunIcon = () => {
       strokeWidth={1.5}
       stroke="currentColor"
       className="w-6 h-6"
-      color="#A04000"
+      color="#E67E22"
     >
       <path
         strokeLinecap="round"
