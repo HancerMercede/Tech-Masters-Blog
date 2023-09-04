@@ -31,7 +31,7 @@ const Blog = () => {
               <div className="blog-subCategory">
                 {blog.subCategory.map((category, index) => (
                   <>
-                    <div key={index}>
+                    <div key={ImageBitmapRenderingContext}>
                       <Chip key={index} label={category} />
                     </div>
                   </>
