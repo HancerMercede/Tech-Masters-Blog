@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 export const ThemeContext = createContext();
 
-// eslint-disable-next-line react/prop-types
 export const ThemeProvider = ({ children }) => {
   const setDarkMode = () => {
     document.querySelector("body").setAttribute("data-theme", "dark");
@@ -29,6 +29,10 @@ export const ThemeProvider = ({ children }) => {
       {children}
     </ThemeContext.Provider>
   );
+};
+
+ThemeProvider.propTypes = {
+  children: PropTypes.object.isRequired,
 };
 
 export default ThemeProvider;
