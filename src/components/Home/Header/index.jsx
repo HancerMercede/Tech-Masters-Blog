@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Darktheme from "../../DarkMode/darktheme";
 import "./styles.css";
 
@@ -16,6 +17,11 @@ const Header = () => {
         </div>
         <Darktheme />
       </header>
+      <div className="home-header-newpost">
+        <Link to="/NewPost" className="primary-button ">
+          Create Post
+        </Link>
+      </div>
     </>
   );
 };

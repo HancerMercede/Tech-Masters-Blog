@@ -1,4 +1,5 @@
-import "./styles.css";
+import "./Chip.css";
+
 import PropTypes from "prop-types";
 
 const Chip = ({ label }) => <p className="chip">{label}</p>;
