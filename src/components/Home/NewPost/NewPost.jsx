@@ -3,7 +3,7 @@ import styles from "./NewPost.module.css";
 import { useState } from "react";
 import Editor from "../../Editor/Editor";
 import Options from "../../../config/options";
-import { Sucess } from "../../../utils/Success";
+import Swal from "sweetalert2";
 
 export const NewPost = () => {
   const [title, setTitle] = useState("");
@@ -44,9 +44,10 @@ export const NewPost = () => {
     });
 
     if (response.status === 201) {
-      setRedirect(true);
-      handlerClear();
-      <Sucess />;
+      Swal.fire("Success!", "The post was successfully", "success").then(() => {
+        setRedirect(true);
+        handlerClear();
+      });
     }
   };
 
