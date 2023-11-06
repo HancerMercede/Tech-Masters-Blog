@@ -3,7 +3,7 @@ import styles from "./NewPost.module.css";
 import { useState } from "react";
 import Editor from "../../Editor/Editor";
 import Options from "../../../config/options";
-import { Sucess } from "../../../utils/Sucess";
+import { Sucess } from "../../../utils/Success";
 
 export const NewPost = () => {
   const [title, setTitle] = useState("");
@@ -34,6 +34,7 @@ export const NewPost = () => {
     };
 
     e.preventDefault();
+
     const response = await fetch("http://localhost:3000/api/v1/posts", {
       method: "POST",
       body: JSON.stringify(data),
@@ -45,11 +46,7 @@ export const NewPost = () => {
     if (response.status === 201) {
       setRedirect(true);
       handlerClear();
-      <Sucess
-        title={"Good job!"}
-        text={"You clicked the button!"}
-        icon={"success"}
-      />;
+      <Sucess />;
     }
   };
 
