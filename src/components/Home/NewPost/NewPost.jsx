@@ -3,6 +3,7 @@ import styles from "./NewPost.module.css";
 import { useState } from "react";
 import Editor from "../../Editor/Editor";
 import Options from "../../../config/options";
+import { Sucess } from "../../../utils/Sucess";
 
 export const NewPost = () => {
   const [title, setTitle] = useState("");
@@ -21,7 +22,7 @@ export const NewPost = () => {
     setAuthor("");
     setContent("");
   };
-  console.log(category);
+
   const handleSubmit = async (e) => {
     const data = {
       title: title,
@@ -44,6 +45,11 @@ export const NewPost = () => {
     if (response.status === 201) {
       setRedirect(true);
       handlerClear();
+      <Sucess
+        title={"Good job!"}
+        text={"You clicked the button!"}
+        icon={"success"}
+      />;
     }
   };
 
