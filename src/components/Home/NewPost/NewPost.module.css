@@ -1,22 +1,31 @@
+.container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
 .headerWrap {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     text-align: center;
     color: #0080ff;
     font-size: 1.5rem;
-    margin-top: 0.5rem;
+    margin-top: 2rem;
+
 }
 
 .input {
     width: 100%;
     border: none;
     padding: 0.5rem;
-    font-size: 1rem;
     outline: none;
     border-radius: 5px;
-    margin: 10px auto 10px auto
+    margin: 10px auto 10px auto;
+    background-color: #f0f0f0;
+
 }
 
 
@@ -46,9 +55,9 @@
     width: 100%;
     border: none;
     padding: 0.5rem;
-    font-size: 1rem;
     outline: none;
     border-radius: 5px;
     margin: 10px auto 10px auto;
     color: gray;
+    background-color: #f0f0f0;
 }

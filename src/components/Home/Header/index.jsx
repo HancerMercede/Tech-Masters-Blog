@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Darktheme from "../../DarkMode/darktheme";
+import Darktheme from "../../DarkMode/Darktheme.jsx";
 import "./styles.css";
 
 const Header = () => {

@@ -24,7 +24,7 @@
 
 .blogItem-desc {
   position: relative;
-  max-height: 50px;
+  max-height: 30px;
   overflow: hidden;
   padding-right: 0.6rem;
   font-size: 0.8rem;

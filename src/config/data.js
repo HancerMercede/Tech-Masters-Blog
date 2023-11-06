@@ -64,8 +64,7 @@ export const blogList = [
     title: "React-Router",
     category: "React",
     subCategory: ["Software", "Development", "FrontEnd"],
-    description:
-      "Software engineering is an engineering-based approach to software development. A software engineer is a person who applies the engineering design process to design, develop, maintain, test, and evaluate computer software. The term programmer is sometimes used as a synonym, but may emphasize software implementation over design and can also lack connotations of engineering education or skills.",
+    description: "Is a labrary for route configuration.",
     authorName: "Hancer Mercede",
     authorAvatar: "/assets/images/author.jpg",
     createdAt: "September 03, 2023",

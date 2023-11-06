@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
-import Blog from "./pages/Blog";
+import Home from "./pages/Home/Home";
+import Blog from "./pages/Blog/PostDetails";
 import ThemeProvider from "./components/DarkMode/Theme";
-import { NewPost } from "./components/NewPost";
+import { NewPost } from "./components/Home/NewPost/NewPost";
 function App() {
   return (
     <>

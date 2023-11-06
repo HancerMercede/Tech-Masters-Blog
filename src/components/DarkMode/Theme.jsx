@@ -7,11 +7,13 @@ export const ThemeProvider = ({ children }) => {
   const setDarkMode = () => {
     document.querySelector("body").setAttribute("data-theme", "dark");
   };
+
   const setLightMode = () => {
     document.querySelector("body").setAttribute("data-theme", "light");
   };
 
   const [isDark, setIsDark] = useState(true);
+
   const theme = isDark ? setDarkMode() : setLightMode();
 
   const toogleTheme = () => {
