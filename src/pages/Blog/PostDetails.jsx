@@ -17,17 +17,19 @@ const subCategory = [
   { id: 3, Name: "Back-End" },
 ];
 
-const Blog = () => {
+const PostDetails = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    GetRequest(`/v1/posts/${id}`).then((data) => {
-      setPost(data);
-      setLoading(false);
-    });
+    GetRequest(`/api/v1/posts/${id}`)
+      .then((data) => {
+        setPost(data);
+        setLoading(false);
+      })
+      .catch((err) => console.log(err));
   }, [id]);
 
   if (loading) {
@@ -46,10 +48,10 @@ const Blog = () => {
               <p className="blog-date">Published {post.postdate}</p>
               <h1>{post.title}</h1>
               <div className="blog-subCategory">
-                {subCategory.map((category) => (
+                {subCategory.map((category, index) => (
                   <>
                     <div>
-                      <Chip key={category.id} label={category.Name} />
+                      <Chip key={index} label={category.Name} />
                     </div>
                   </>
                 ))}
@@ -64,7 +66,7 @@ const Blog = () => {
               <img src={authorAvatar} alt="avatar" />
               <div>
                 <h6>{post.username}</h6>
-                <p>{post.PostDate}</p>
+                <p>{post.postdate}</p>
               </div>
             </div>
           </div>
@@ -76,4 +78,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default PostDetails;

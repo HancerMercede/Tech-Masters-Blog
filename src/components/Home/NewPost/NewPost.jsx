@@ -44,10 +44,12 @@ export const NewPost = () => {
     });
 
     if (response.status === 201) {
-      Swal.fire("Success!", "The post was successfully", "success").then(() => {
-        setRedirect(true);
-        handlerClear();
-      });
+      Swal.fire("Success!", "The post was successfully added", "success").then(
+        () => {
+          setRedirect(true);
+          handlerClear();
+        }
+      );
     }
   };
 

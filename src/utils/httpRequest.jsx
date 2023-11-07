@@ -1,4 +1,4 @@
-const endpoint = "http://localhost:3000/api";
+const endpoint = "http://localhost:3000";
 
 export const GetRequest = (path) => {
   return fetch(`${endpoint}${path}`, {
