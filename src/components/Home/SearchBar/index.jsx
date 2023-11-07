@@ -23,7 +23,6 @@ const SearchBar = () => {
             const value = e.target.value;
             history("/?search=" + value);
           }}
-          onKeyDown={(e) => e.target.value}
         />
         <button type="submit">
           <span>🔎 Go</span>
