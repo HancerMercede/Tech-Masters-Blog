@@ -4,13 +4,17 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 
 const authorAvatar = "/assets/images/author.jpg";
-const cover = "/assets/images/React-post.jpg";
+//const cover = "/assets/images/Nophoto.png";
 
 export const PostItem = ({ post }) => {
   return (
     <div className="blogItem-wrap">
       <Link className="blogItem-link" to={`/blog/${post.id}`}>
-        <img src={cover} alt="cover" className="blogItem-cover" />
+        <img
+          src={`http://localhost:3000/${post.cover}`}
+          alt="cover"
+          className="blogItem-cover"
+        />
       </Link>
       <Chip label={post.category} />
       <h3>{post.title}</h3>

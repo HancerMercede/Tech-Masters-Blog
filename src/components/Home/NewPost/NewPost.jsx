@@ -1,14 +1,15 @@
-import { Link, Navigate } from "react-router-dom";
+import { Form, Link, Navigate } from "react-router-dom";
 import styles from "./NewPost.module.css";
 import { useState } from "react";
 import Editor from "../../Editor/Editor";
 import Options from "../../../config/options";
 import Swal from "sweetalert2";
+import axios, { toFormData } from "axios";
 
 export const NewPost = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
-  const [files, setFiles] = useState("");
+  const [files, setFiles] = useState();
   const [date, setDate] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
@@ -17,40 +18,39 @@ export const NewPost = () => {
   const handlerClear = () => {
     setTitle("");
     setCategory("");
-    setFiles("");
+    setFiles(null);
     setDate("");
     setAuthor("");
     setContent("");
   };
+  const CreateNewPost = async (e) => {
+    const data = new FormData();
+    data.append("title", title);
+    data.append("category", category);
+    data.append("files", files[0]);
+    data.append("date", date);
+    data.append("author", author);
+    data.append("content", content);
 
-  const handleSubmit = async (e) => {
-    const data = {
-      title: title,
-      category: category,
-      files: files,
-      date: Date.parse(date),
-      content: content,
-      author: author,
-    };
+    console.log(data);
 
     e.preventDefault();
 
-    const response = await fetch("http://localhost:3000/api/v1/posts", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "content-type": "application/json",
-      },
-    });
-
-    if (response.status === 201) {
-      Swal.fire("Success!", "The post was successfully added", "success").then(
-        () => {
-          setRedirect(true);
-          handlerClear();
+    axios
+      .post("http://localhost:3000/api/v1/posts", data)
+      .then((res) => {
+        if (res) {
+          Swal.fire(
+            "Success!",
+            "The post was successfully added",
+            "success"
+          ).then(() => {
+            setRedirect(true);
+            handlerClear();
+          });
         }
-      );
-    }
+      })
+      .catch((err) => console.log(err.message));
   };
 
   if (redirect) {
@@ -65,7 +65,7 @@ export const NewPost = () => {
           <h3>Show it to all.</h3>
         </header>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={CreateNewPost}>
         <input
           className={styles.input}
           type="text"
@@ -83,12 +83,7 @@ export const NewPost = () => {
             return <option key={index}>{option}</option>;
           })}
         </select>
-        <input
-          className={styles.input}
-          type="file"
-          placeholder="select a file"
-          onChange={(e) => setFiles(e.target.files)}
-        />
+        <input type="file" onChange={(e) => setFiles(e.target.files)} />
         <input
           className={styles.input}
           type="date"

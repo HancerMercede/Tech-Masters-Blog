@@ -8,7 +8,7 @@ import { Loader } from "../../utils/Loader";
 
 // Mocking the cover and the author picture.
 const authorAvatar = "/assets/images/author.jpg";
-const cover = "/assets/images/React-post.jpg";
+// const cover = "/assets/images/Nophoto.png";
 
 // Mocking the subcategory.
 const subCategory = [
@@ -48,16 +48,16 @@ const PostDetails = () => {
               <p className="blog-date">Published {post.postdate}</p>
               <h1>{post.title}</h1>
               <div className="blog-subCategory">
-                {subCategory.map((category, index) => (
+                {subCategory.map((category) => (
                   <>
                     <div>
-                      <Chip key={index} label={category.Name} />
+                      <Chip key={category.id} label={category.Name} />
                     </div>
                   </>
                 ))}
               </div>
             </header>
-            <img src={cover} alt="cover" />
+            <img src={`http://localhost:3000/${post.cover}`} alt="cover" />
             <p
               className="blog-desc"
               dangerouslySetInnerHTML={{ __html: post.content }}
