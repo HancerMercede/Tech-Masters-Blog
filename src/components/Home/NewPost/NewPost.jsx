@@ -1,10 +1,10 @@
-import { Form, Link, Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import styles from "./NewPost.module.css";
 import { useState } from "react";
 import Editor from "../../Editor/Editor";
 import Options from "../../../config/options";
 import Swal from "sweetalert2";
-import axios, { toFormData } from "axios";
+import axios from "axios";
 
 export const NewPost = () => {
   const [title, setTitle] = useState("");

@@ -1,6 +1,7 @@
 .blog-wrap {
   max-width: 700px;
   margin: 0 auto;
+
 }
 
 .blog-goBack {
@@ -9,7 +10,7 @@
   font-weight: 500;
   margin-bottom: 2rem;
   display: flex;
-  background: linear-gradient(to right, #6190e8, #a7bfe8);
+  background: linear-gradient(to right, #0080ff, #a7bfe8);
   border-radius: 5px;
   padding: .3rem .5rem;
   color: white;
@@ -44,11 +45,12 @@
 .blog-desc {
   padding: 1rem;
   margin-top: 1.5rem;
+  line-height: 1.7;
 }
 
 .blog-link {
   text-decoration: none;
-  background: linear-gradient(to right, #6190e8, #a7bfe8);
+  background: linear-gradient(to right, #0080ff, #a7bfe8);
   border-radius: 5px;
   padding: .3rem .5rem;
   color: white;

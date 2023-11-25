@@ -28,7 +28,9 @@ const Home = ({ search }) => {
   }
 
   return (
-    <div>{!posts.length ? <EmptyList /> : <PostList posts={posts} />}</div>
+    <>
+      <div>{!posts.length ? <EmptyList /> : <PostList posts={posts} />}</div>
+    </>
   );
 };
 

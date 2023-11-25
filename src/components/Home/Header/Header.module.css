@@ -1,0 +1,68 @@
+.header_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: transparent;
+}
+
+.Logo {
+    font-size: 1rem;
+    font-family: 'PacFont';
+    font-weight: bold;
+
+}
+
+.Logo a {
+    text-decoration: none;
+    color: var(--text_color);
+}
+
+.nav_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_menu_elements {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--text_color);
+}
+
+.nav_menu_elements a {
+    text-decoration: none;
+}
+
+.Link_NewPost a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--text_color);
+}
+
+.Link_Login a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--text_color);
+}
+
+.Logout_btn {
+    padding: 4px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: linear-gradient(to right, #15e862, #a7bfe8);
+}

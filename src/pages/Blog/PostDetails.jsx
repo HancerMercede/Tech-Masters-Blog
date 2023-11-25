@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Chip from "../../components/common/Chip";
 import EmptyList from "../../components/common/EmptyList";
@@ -8,7 +8,6 @@ import { Loader } from "../../utils/Loader";
 
 // Mocking the cover and the author picture.
 const authorAvatar = "/assets/images/author.jpg";
-// const cover = "/assets/images/Nophoto.png";
 
 // Mocking the subcategory.
 const subCategory = [
@@ -38,10 +37,6 @@ const PostDetails = () => {
   return (
     <>
       <div>
-        <Link to="/" className="blog-goBack">
-          <span>Go Back</span>
-        </Link>
-
         {post ? (
           <div className="blog-wrap">
             <header>

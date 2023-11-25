@@ -3,7 +3,6 @@ import { PostItem } from "./BlogItem/PostItem.jsx";
 import "./styles.css";
 
 const PostList = ({ posts }) => {
-  console.log(posts);
   return (
     <div className="blogList-wrap">
       {posts.map((post) => (
