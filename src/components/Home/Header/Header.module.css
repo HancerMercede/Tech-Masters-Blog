@@ -32,12 +32,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     color: var(--text_color);
 }
 
 .nav_menu_elements a {
     text-decoration: none;
+}
+
+.nav_menu_elements img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .Link_NewPost a {
@@ -46,6 +53,11 @@
     justify-content: center;
     align-items: center;
     color: var(--text_color);
+}
+
+.Link_NewPost :hover {
+    color: #C8A6EC;
+
 }
 
 .Link_Login a {

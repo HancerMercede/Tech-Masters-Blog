@@ -4,8 +4,8 @@
 }
 
 .blogItem-cover {
-  width: 325px;
-  height: 325px;
+  width: 350px;
+  height: 350px;
   object-fit: cover;
   border-radius: 20px;
   margin-bottom: 0.5rem;

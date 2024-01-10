@@ -16,6 +16,9 @@ const Header = () => {
   useEffect(() => {
     axios
       .get("http://localhost:3000/auth/profile", {
+        headers: {
+          "Content-Type": "application/json",
+        },
         withCredentials: true,
       })
       .then((response) => {
@@ -37,6 +40,9 @@ const Header = () => {
           },
         })
       );
+    // const user = JSON.parse(localStorage.getItem("userinfo"));
+    // console.log(user);
+    // setUserInfo(user);
     setRedirect(true);
   }, [setUserInfo]);
 
@@ -48,11 +54,15 @@ const Header = () => {
         },
         withCredentials: true,
       })
-      .then(
+      .then((response) => {
         setUserInfo(null),
-        localStorage.removeItem("userinfo"),
-        setRedirect(true)
-      );
+          localStorage.setItem(
+            "userinfo",
+            JSON.stringify({ id: "", email: "" })
+          ),
+          localStorage.setItem("token", JSON.stringify(response.data.token)),
+          setRedirect(true);
+      });
   };
 
   if (redirect) {
@@ -70,6 +80,11 @@ const Header = () => {
           <ul className={styles.nav_menu_elements}>
             {username && (
               <>
+                <img
+                  src="/assets/images/Avatar.png"
+                  alt="Author"
+                  className="profile-photo"
+                />
                 <li>{username}</li>
                 <li className={styles.Link_NewPost}>
                   <Link to="/NewPost">

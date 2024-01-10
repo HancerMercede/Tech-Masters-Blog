@@ -13,13 +13,14 @@ import { UserContext } from "../../components/UserContext/UserContext";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Comment } from "../../components/comments/Comment";
+import { DateFormatter } from "../../utils/DateFormatter";
 
-// Mocking the cover and the author picture.
+// Mocking the author picture.
 const authorAvatar = "/assets/images/author.jpg";
 
 // Setting the token
-const token = localStorage.getItem("token");
-const authToken = JSON.parse(token);
+// const token = localStorage.getItem("token");
+// const authToken = JSON.parse(token);
 
 // Mocking the subcategory.
 const subCategory = [
@@ -33,6 +34,7 @@ const PostDetails = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [redirect, setRedirect] = useState(false);
+  const [comment, setComment] = useState([]);
 
   const { userInfo } = useContext(UserContext);
 
@@ -45,6 +47,12 @@ const PostDetails = () => {
       })
       .catch((err) => console.log(err));
   }, [id]);
+
+  useEffect(() => {
+    GetRequest(`/api/v1/posts/${id}/comments`).then((response) => {
+      setComment(response);
+    });
+  }, [id, comment]);
 
   const handleDelete = (ev) => {
     ev.preventDefault();
@@ -62,7 +70,6 @@ const PostDetails = () => {
           .delete(`http://localhost:3000/api/v1/posts/${post.id}`, {
             headers: {
               "Content-Type": "application/json",
-              Authorization: "Bearer " + authToken,
             },
             withCredentials: true,
           })
@@ -140,6 +147,31 @@ const PostDetails = () => {
       {userInfo?.email && (
         <Comment idPost={post.id} username={userInfo?.email} />
       )}
+      <div className="comment_section">
+        <ul>
+          {comment.length ? (
+            comment.map((c) => (
+              <Fragment key={c.id}>
+                <li className="username">{c.username}</li>
+                <li className="date">{DateFormatter(c.createdAt)}</li>
+                <li className="content">{c.content}</li>
+                {userInfo?.email && (
+                  <div className="buttons_wrapper">
+                    <button className="btn_edit">
+                      <PiNotePencilThin size={15} />
+                    </button>
+                    <button className="btn_delete">
+                      <CiTrash size={15} />
+                    </button>
+                  </div>
+                )}
+              </Fragment>
+            ))
+          ) : (
+            <li>No comments yet for this post: {post.id}</li>
+          )}
+        </ul>
+      </div>
     </>
   );
 };

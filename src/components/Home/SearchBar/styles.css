@@ -16,7 +16,8 @@
   background-color: #f0f0f0;
   outline: none;
   border: none;
-  padding: 0.3rem 15px 0.3rem 0;
+  padding: 0.3rem 15px 0.3rem 2px;
+  width: 200px;
 }
 
 .searchBar-Wrap span {

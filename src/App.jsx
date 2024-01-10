@@ -12,7 +12,6 @@ function App() {
   return (
     <>
       <Header />
-
       <div className="container">
         <Routes>
           <Route path="/" exact Component={LandingPage} />

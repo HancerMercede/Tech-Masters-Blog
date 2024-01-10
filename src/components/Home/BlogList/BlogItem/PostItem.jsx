@@ -30,7 +30,7 @@ export const PostItem = ({ post }) => {
           </div>
         </div>
         <Link className="blogItem-link-btn" to={`/blog/${post.id}`}>
-          READ
+          Read
         </Link>
       </footer>
     </div>

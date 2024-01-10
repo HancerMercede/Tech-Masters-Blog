@@ -3,7 +3,7 @@ import "./styles.css";
 const EmptyList = () => {
   return (
     <div className="emptyList-wrap">
-      <p>Not results...</p>
+      <p>No Results Found 😱...</p>
     </div>
   );
 };
