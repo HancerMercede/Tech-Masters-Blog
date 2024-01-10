@@ -27,10 +27,9 @@ export const Login = () => {
       })
       .then((response) => {
         if (response) {
-          
           const user = response.data;
           localStorage.setItem("userinfo", JSON.stringify(response.data));
-
+          localStorage.setItem("token", JSON.stringify(response.data.token));
           setUserInfo(user);
 
           setRedirect(true);
@@ -44,16 +43,19 @@ export const Login = () => {
   }
   return (
     <>
-      <div className={styles.title}>
-        <h1>Login</h1>
+      <div className={styles.title_image_wrapper}>
+        <div className={styles.title}>
+          <h1>Login</h1>
+        </div>
+        <div>
+          <img
+            className={styles.image_logo}
+            src="./assets/images/login_register_image.jpg"
+            alt="imagen"
+          />
+        </div>
       </div>
-      <div>
-        <img
-          className={styles.image_logo}
-          src="./assets/images/login_register_image.jpg"
-          alt="imagen"
-        />
-      </div>
+
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
           type="text"

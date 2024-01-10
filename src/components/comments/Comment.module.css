@@ -1,0 +1,29 @@
+.container {
+    width: 70%;
+    margin: 50px 0 auto 0;
+    border: 1px solid black;
+    padding: 15px 15px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 15px rgba(255, 255, 255, 0.2)
+}
+
+.text_area {
+    width: 100%;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    margin: 10px auto 10px auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button {
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(to right, #0080ff, #a7bfe8);
+    font-size: 1rem;
+    width: 100%;
+}

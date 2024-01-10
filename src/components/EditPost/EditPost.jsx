@@ -1,16 +1,14 @@
-import { Link, Navigate } from "react-router-dom";
-import styles from "./NewPost.module.css";
-import { useState } from "react";
-import Editor from "../../Editor/Editor";
-import Options from "../../../config/options";
+import { useEffect, useState } from "react";
+import styles from "./EditPost.module.css";
+import Options from "../../config/options";
+import Editor from "../Editor/Editor";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { GetRequest } from "../../utils/httpRequest";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Store } from "react-notifications-component";
 
-export const NewPost = () => {
-  const token = localStorage.getItem("token");
-  const authToken = JSON.parse(token);
-
+export const EditPost = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [files, setFiles] = useState();
@@ -18,6 +16,10 @@ export const NewPost = () => {
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [redirect, setRedirect] = useState(false);
+
+  const { id } = useParams();
+  const token = localStorage.getItem("token");
+  const authToken = JSON.parse(token);
 
   const handlerClear = () => {
     setTitle("");
@@ -27,29 +29,56 @@ export const NewPost = () => {
     setAuthor("");
     setContent("");
   };
-  const CreateNewPost = async (e) => {
+
+  useEffect(() => {
+    GetRequest(`/api/v1/posts/${id}`)
+      .then((data) => {
+        setTitle(data.title);
+        setCategory(data.category);
+        setFiles(data.cover);
+        setDate(data.createdAt);
+        setAuthor(data.username);
+        setContent(data.content);
+      })
+      .catch((err) =>
+        Store.addNotification({
+          title: "Error",
+          type: "danger",
+          message: err.message,
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated animate__fadeIn"],
+          animationOut: ["animate__animated animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true,
+          },
+        })
+      );
+  }, [id]);
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
     const data = new FormData();
     data.append("title", title);
     data.append("category", category);
-    data.append("files", files[0]);
+    data.append("files", files?.[0]);
     data.append("date", date);
     data.append("author", author);
     data.append("content", content);
 
-    e.preventDefault();
-
     axios
-      .post("http://localhost:3000/api/v1/posts", data, {
+      .put(`http://localhost:3000/api/v1/posts/${id}`, data, {
         withCredentials: true,
         headers: {
-          Authorization: "Bearer " + authToken,
+          Authorization: `Bearer ${authToken}`,
         },
       })
       .then((res) => {
         if (res) {
           Swal.fire(
             "Success!",
-            "The post was successfully added",
+            "The post was successfully updated",
             "success"
           ).then(() => {
             setRedirect(true);
@@ -82,11 +111,10 @@ export const NewPost = () => {
     <div className={styles.container}>
       <div className={styles.headerWrap}>
         <header>
-          <h1>Create a new post</h1>
-          <h3>Show it to all.</h3>
+          <h1>{title}</h1>
         </header>
       </div>
-      <form onSubmit={CreateNewPost}>
+      <form onSubmit={handleUpdate}>
         <input
           className={styles.input}
           type="text"

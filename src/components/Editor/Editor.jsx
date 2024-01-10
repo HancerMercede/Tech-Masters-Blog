@@ -1,11 +1,12 @@
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import "react-quill/dist/quill.bubble.css";
 
 export default function Editor({ value, onChange }) {
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      ["bold", "italic", "underline", "strike"], // toggled buttons
+      ["bold", "italic", "underline", "strike"],
       ["blockquote", "code-block"],
       [
         { list: "ordered" },
@@ -17,7 +18,7 @@ export default function Editor({ value, onChange }) {
       [{ direction: "rtl" }],
 
       ["link", "image"],
-      ["clean"], // remove formatting button
+      ["clean"],
     ],
   };
   return (

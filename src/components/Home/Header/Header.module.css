@@ -2,18 +2,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px 15px;
+    margin: 0 0 50px 0;
+    padding: 15px 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: transparent;
+    position: relative;
+    top: 0;
 }
 
 .Logo {
     font-size: 1rem;
     font-family: 'PacFont';
     font-weight: bold;
-
 }
 
 .Logo a {
@@ -65,4 +65,20 @@
     flex-direction: row;
     align-items: center;
     background: linear-gradient(to right, #15e862, #a7bfe8);
+}
+
+@media screen and (max-width: 768px) {
+    .Logo {
+        display: none;
+    }
+
+    .header_menu {
+        width: 100%;
+    }
+
+    .header_menu {
+        display: flex;
+        justify-content: right;
+        align-items: right;
+    }
 }

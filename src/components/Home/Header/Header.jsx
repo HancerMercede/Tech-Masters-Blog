@@ -7,13 +7,11 @@ import { MdOutlineLogin } from "react-icons/md";
 import { UserContext } from "../../UserContext/UserContext";
 import { useContext, useEffect } from "react";
 import { useState } from "react";
+import { Store } from "react-notifications-component";
 
 const Header = () => {
   const { setUserInfo, userInfo } = useContext(UserContext);
   const [redirect, setRedirect] = useState(false);
-
-  const CancelToken = axios.CancelToken;
-  const source = CancelToken.source();
 
   useEffect(() => {
     axios
@@ -21,9 +19,25 @@ const Header = () => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response);
+        console.log(response.data.user);
         setUserInfo(response.data.user);
-      });
+      })
+      .catch((err) =>
+        Store.addNotification({
+          title: "Information",
+          type: "info",
+          message: "The session has expired: " + err.message,
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated animate__fadeIn"],
+          animationOut: ["animate__animated animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true,
+          },
+        })
+      );
+    setRedirect(true);
   }, [setUserInfo]);
 
   const logout = () => {
@@ -33,7 +47,6 @@ const Header = () => {
           "Content-Type": "application/json",
         },
         withCredentials: true,
-        cancelToken: source.token,
       })
       .then(
         setUserInfo(null),

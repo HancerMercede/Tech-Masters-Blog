@@ -55,15 +55,17 @@ export const Register = () => {
 
   return (
     <>
-      <div className={styles.title}>
-        <h1>Register</h1>
-      </div>
-      <div>
-        <img
-          className={styles.image_logo}
-          src="./assets/images/login_register_image.jpg"
-          alt="imagen"
-        />
+      <div className={styles.title_image_wrapper}>
+        <div className={styles.title}>
+          <h1>Register</h1>
+        </div>
+        <div>
+          <img
+            className={styles.image_logo}
+            src="./assets/images/login_register_image.jpg"
+            alt="imagen"
+          />
+        </div>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <input

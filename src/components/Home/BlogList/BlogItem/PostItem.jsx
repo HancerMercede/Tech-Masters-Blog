@@ -4,7 +4,6 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 
 const authorAvatar = "/assets/images/author.jpg";
-//const cover = "/assets/images/Nophoto.png";
 
 export const PostItem = ({ post }) => {
   return (
@@ -18,10 +17,10 @@ export const PostItem = ({ post }) => {
       </Link>
       <Chip label={post.category} />
       <h3>{post.title}</h3>
-      <p
+      {/* <p
         className="blogItem-desc"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+        // dangerouslySetInnerHTML={{ __html: post.content }}
+      /> */}
       <footer>
         <div className="blogItem-author">
           <img src={authorAvatar} alt="avatar" />
@@ -30,8 +29,8 @@ export const PostItem = ({ post }) => {
             <p>{post.postdate}</p>
           </div>
         </div>
-        <Link className="blogItem-link" to={`/blog/${post.id}`}>
-          ➡️
+        <Link className="blogItem-link-btn" to={`/blog/${post.id}`}>
+          READ
         </Link>
       </footer>
     </div>

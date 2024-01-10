@@ -8,6 +8,7 @@ import Proptypes from "prop-types";
 const Home = ({ search }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+
   console.log(search);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const Home = ({ search }) => {
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, [search]);
+  }, [search, setPosts]);
 
   if (loading) {
     return <Loader />;

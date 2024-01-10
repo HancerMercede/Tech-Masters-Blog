@@ -1,13 +1,25 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 import Chip from "../../components/common/Chip";
 import EmptyList from "../../components/common/EmptyList";
 import "./styles.css";
 import { GetRequest } from "../../utils/httpRequest";
 import { Loader } from "../../utils/Loader";
+import { CiTrash } from "react-icons/ci";
+import { PiNotePencilThin } from "react-icons/pi";
+import "highlight.js/styles/github.css";
+import { Fragment } from "react";
+import { UserContext } from "../../components/UserContext/UserContext";
+import Swal from "sweetalert2";
+import axios from "axios";
+import { Comment } from "../../components/comments/Comment";
 
 // Mocking the cover and the author picture.
 const authorAvatar = "/assets/images/author.jpg";
+
+// Setting the token
+const token = localStorage.getItem("token");
+const authToken = JSON.parse(token);
 
 // Mocking the subcategory.
 const subCategory = [
@@ -20,6 +32,9 @@ const PostDetails = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [redirect, setRedirect] = useState(false);
+
+  const { userInfo } = useContext(UserContext);
 
   useEffect(() => {
     setLoading(true);
@@ -31,9 +46,47 @@ const PostDetails = () => {
       .catch((err) => console.log(err));
   }, [id]);
 
+  const handleDelete = (ev) => {
+    ev.preventDefault();
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/api/v1/posts/${post.id}`, {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + authToken,
+            },
+            withCredentials: true,
+          })
+          .then(() => {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your post has been deleted.",
+              icon: "success",
+            }).then(() => {
+              setRedirect(true);
+            });
+          });
+      }
+    });
+  };
+
   if (loading) {
     return <Loader />;
   }
+
+  if (redirect) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <>
       <div>
@@ -44,18 +97,33 @@ const PostDetails = () => {
               <h1>{post.title}</h1>
               <div className="blog-subCategory">
                 {subCategory.map((category) => (
-                  <>
+                  <Fragment key={category.id}>
                     <div>
-                      <Chip key={category.id} label={category.Name} />
+                      <Chip label={category.Name} />
                     </div>
-                  </>
+                  </Fragment>
                 ))}
               </div>
             </header>
             <img src={`http://localhost:3000/${post.cover}`} alt="cover" />
+            <div className="Edit_section">
+              {userInfo?.email ? (
+                <>
+                  <Link className="Edit_button" to={`/Edit/${post.id}`}>
+                    <PiNotePencilThin size={14} title="Edit Post" /> Edit
+                  </Link>
+                  <button className="Delete_button" onClick={handleDelete}>
+                    <CiTrash size={14} title="Delete Post" />
+                    Delete
+                  </button>
+                </>
+              ) : null}
+            </div>
             <p
               className="blog-desc"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{
+                __html: post.content,
+              }}
             />
             <div className="blog-author">
               <img src={authorAvatar} alt="avatar" />
@@ -69,6 +137,9 @@ const PostDetails = () => {
           <EmptyList />
         )}
       </div>
+      {userInfo?.email && (
+        <Comment idPost={post.id} username={userInfo?.email} />
+      )}
     </>
   );
 };

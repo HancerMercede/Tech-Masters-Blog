@@ -17,16 +17,16 @@ const SearchBar = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search by category"
+          placeholder="Search by category... "
           value={search ?? ""}
           onChange={(e) => {
             const value = e.target.value;
             history("/?search=" + value);
           }}
         />
-        <button type="submit">
+        {/* <button type="submit">
           <span>🔎 Go</span>
-        </button>
+        </button> */}
       </form>
     </div>
   );

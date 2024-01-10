@@ -74,3 +74,35 @@
   color: #a9a9a9;
   font-weight: 600;
 }
+
+.Edit_section {
+  margin: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  width: fit-content;
+}
+
+.Edit_button {
+  text-decoration: none;
+  color: var(--text_color);
+  padding: .5rem .7rem;
+  border-radius: 5px;
+  font-size: .8rem;
+  background: linear-gradient(to right, #15e862, #a7bfe8);
+  display: flex;
+  align-items: center;
+}
+
+.Delete_button {
+  text-decoration: none;
+  color: var(--text_color);
+  padding: .5rem .7rem;
+  border-radius: 5px;
+  font-size: .8rem;
+  background: linear-gradient(to right, #e84615, #a7bfe8);
+  display: flex;
+  align-items: center;
+  border: none;
+}
