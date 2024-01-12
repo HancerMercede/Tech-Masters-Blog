@@ -4,21 +4,30 @@
     align-items: center;
     margin: 0 0 50px 0;
     padding: 15px 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: transparent;
-    position: relative;
+    position: fixed;
+    width: 100%;
     top: 0;
+    /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
+    background-color: var(--navbar_background)
 }
 
 .Logo {
     font-size: 1rem;
-    font-family: 'PacFont';
+    /* font-family: 'PacFont'; */
     font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .Logo a {
     text-decoration: none;
     color: var(--text_color);
+}
+
+.user_profile_section {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .nav_menu {
@@ -57,7 +66,6 @@
 
 .Link_NewPost :hover {
     color: #C8A6EC;
-
 }
 
 .Link_Login a {
@@ -85,12 +93,9 @@
     }
 
     .header_menu {
-        width: 100%;
-    }
-
-    .header_menu {
         display: flex;
         justify-content: right;
         align-items: right;
+        width: 100%;
     }
 }

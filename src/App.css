@@ -5,7 +5,7 @@
   --body_color: black;
   --link_color: navy;
   --text_color: #1C2833;
-  --navbar_background: #D6DBDF;
+  --navbar_background: white;
 }
 
 [data-theme="dark"] {
@@ -13,7 +13,7 @@
   --body_color: white;
   --link_color: cyan;
   --text_color: #F7F9F9;
-  --navbar_background: #7D3C98;
+  --navbar_background: #282c34;
 }
 
 *,
@@ -27,7 +27,8 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--body_backround);
   color: var(--body_color);
-
+  margin-top: 7rem;
+  /*This line is new added by Hancer to separate the header from body 2024-01-12*/
 }
 
 button,

@@ -22,7 +22,6 @@ const Header = () => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response.data.user);
         setUserInfo(response.data.user);
       })
       .catch((err) =>
@@ -74,18 +73,22 @@ const Header = () => {
     <>
       <header className={styles.header_menu}>
         <div className={styles.Logo}>
-          <Link to={"/"}>TECH-MASTERS 🤖</Link>
+          <Link to={"/"}>
+            TECH-MASTERS <span>🤖</span>
+          </Link>
         </div>
         <nav className={styles.nav_menu}>
           <ul className={styles.nav_menu_elements}>
             {username && (
               <>
-                <img
-                  src="/assets/images/Avatar.png"
-                  alt="Author"
-                  className="profile-photo"
-                />
-                <li>{username}</li>
+                <div className={styles.user_profile_section}>
+                  <img
+                    src="/assets/images/Avatar.png"
+                    alt="Author"
+                    className="profile-photo"
+                  />
+                  <li>{username}</li>
+                </div>
                 <li className={styles.Link_NewPost}>
                   <Link to="/NewPost">
                     <PiNotePencilThin size={20} />
@@ -101,7 +104,6 @@ const Header = () => {
             )}
             {!username && (
               <>
-                {" "}
                 <li className={styles.Link_Login}>
                   <Link to="/Login">
                     <MdOutlineLogin size={15} />
