@@ -6,6 +6,7 @@ import ThemeProvider from "./components/DarkMode/Theme.jsx";
 import { UserContextProvider } from "./components/UserContext/UserContext";
 import { ReactNotifications } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
+import { CommentContextProvider } from "./components/CommentContext/CommentContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <ReactNotifications />
       <UserContextProvider>
         <ThemeProvider>
-          <App />
+          <CommentContextProvider>
+            <App />
+          </CommentContextProvider>
         </ThemeProvider>
       </UserContextProvider>
     </BrowserRouter>

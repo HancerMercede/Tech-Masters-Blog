@@ -39,9 +39,7 @@ const Header = () => {
           },
         })
       );
-    // const user = JSON.parse(localStorage.getItem("userinfo"));
-    // console.log(user);
-    // setUserInfo(user);
+
     setRedirect(true);
   }, [setUserInfo]);
 
@@ -68,7 +66,7 @@ const Header = () => {
     <Navigate to="/" />;
   }
 
-  const username = userInfo?.email;
+  const username = userInfo?.name;
   return (
     <>
       <header className={styles.header_menu}>
@@ -92,7 +90,7 @@ const Header = () => {
                 <li className={styles.Link_NewPost}>
                   <Link to="/NewPost">
                     <PiNotePencilThin size={20} />
-                    Write!
+                    Write
                   </Link>
                 </li>
                 <li>

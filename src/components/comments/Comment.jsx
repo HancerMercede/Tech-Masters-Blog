@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./Comment.module.css";
 import axios from "axios";
-
+import propTypes from "prop-types";
+import { CommentContext } from "../CommentContext/CommentContext";
 const token = localStorage.getItem("token");
 const authToken = JSON.parse(token);
 const path = "http://localhost:3000";
 
 export const Comment = ({ idPost, username }) => {
   const [comment, setComment] = useState("");
+  const { setCommentList } = useContext(CommentContext);
 
   const data = new FormData();
   data.append("idPost", idPost);
@@ -17,9 +19,14 @@ export const Comment = ({ idPost, username }) => {
   const handleClear = () => {
     setComment("");
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
+
+    if (comment.length <= 0) {
+      return;
+    }
+
+    await axios
       .post(`${path}/api/v1/posts/:id/comments`, data, {
         headers: {
           "Content-Type": "application/json",
@@ -28,24 +35,40 @@ export const Comment = ({ idPost, username }) => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response.data);
+        console.log(response);
+        setCommentList(response.data);
+      })
+      .catch((err) => {
+        Store.addNotification({
+          title: "Warning!",
+          type: "info",
+          message: "The session has expired: " + err.message,
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated animate__fadeIn"],
+          animationOut: ["animate__animated animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true,
+          },
+        });
       });
     handleClear();
-    console.log("saving the comment");
   };
 
   return (
     <>
       <div className={styles.container}>
         <div>
-          <p>Please write a comment and tell us what do you think.</p>
+          <p>Comment and tell us what do you think.</p>
         </div>
         <form onSubmit={handleSubmit}>
           <textarea
             className={styles.text_area}
             type="text"
             value={comment}
-            placeholder="write a comment here..."
+            placeholder=" Your comment here..."
+            maxLength={500}
             onChange={(e) => setComment(e.target.value)}
           />
           <input type="submit" value="Send" className={styles.button} />
@@ -53,4 +76,9 @@ export const Comment = ({ idPost, username }) => {
       </div>
     </>
   );
+};
+
+Comment.propTypes = {
+  idPost: propTypes.string.isRequired,
+  username: propTypes.string.isRequired,
 };

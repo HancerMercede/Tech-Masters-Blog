@@ -20,6 +20,7 @@
 .blogItem-wrap h3 {
   margin: 0.5rem 0 0.2rem 0;
   flex: 1;
+  color: var(--text_color);
 }
 
 .blogItem-desc {
@@ -61,6 +62,7 @@
 .blogItem-author {
   display: flex;
   align-items: center;
+  color: var(--text_color);
 }
 
 .blogItem-author img {
