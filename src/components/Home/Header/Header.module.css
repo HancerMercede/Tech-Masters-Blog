@@ -8,15 +8,16 @@
     position: fixed;
     width: 100%;
     top: 0;
-    background-color: var(--navbar_background)
+    background-color: var(--navbar_background);
+    z-index: 2;
 }
 
 .Logo {
     font-size: 1rem;
-    /* font-family: 'PacFont'; */
     font-weight: bold;
     font-size: 1.5rem;
 }
+
 
 .Logo a {
     text-decoration: none;
