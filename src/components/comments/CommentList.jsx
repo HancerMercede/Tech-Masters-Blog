@@ -11,11 +11,9 @@ import { CommentContext } from "../CommentContext/CommentContext";
 export const CommentList = ({ postId }) => {
   const [comments, setComments] = useState([]);
   const { commentList } = useContext(CommentContext);
-  console.log(commentList);
 
   useEffect(() => {
     GetRequest(`/api/v1/posts/${postId}/comments`).then((response) => {
-      console.log(response.data);
       setComments(response);
     });
   }, [postId]);

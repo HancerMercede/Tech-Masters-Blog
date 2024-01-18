@@ -140,7 +140,6 @@ const PostDetails = () => {
       {userInfo?.email && (
         <Comment idPost={post.id} username={userInfo?.email} />
       )}
-
       <CommentList key={id} postId={id} />
     </>
   );

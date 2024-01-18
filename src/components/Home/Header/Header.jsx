@@ -39,8 +39,6 @@ const Header = () => {
           },
         })
       );
-
-    setRedirect(true);
   }, [setUserInfo]);
 
   const logout = () => {
@@ -57,13 +55,13 @@ const Header = () => {
             "userinfo",
             JSON.stringify({ id: "", email: "" })
           ),
-          localStorage.setItem("token", JSON.stringify(response.data.token)),
-          setRedirect(true);
+          localStorage.setItem("token", JSON.stringify(response.data.token));
+        setRedirect(true);
       });
   };
 
   if (redirect) {
-    <Navigate to="/" />;
+    <Navigate to={"/"} />;
   }
 
   const username = userInfo?.name;

@@ -83,19 +83,20 @@ export const NewPost = () => {
       <div className={styles.headerWrap}>
         <header>
           <h1>Create a new post</h1>
-          <h3>Show it to all.</h3>
         </header>
       </div>
+      <hr />
       <form onSubmit={CreateNewPost}>
         <input
           className={styles.input}
           type="text"
-          placeholder="title"
+          placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <select
           name="category"
+          defaultValue={"Development"}
           className={styles.selectCategory}
           value={category}
           onChange={(e) => setCategory(e.target.value)}

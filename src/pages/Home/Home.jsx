@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PostList from "../../components/Home/BlogList/PostList";
 import EmptyList from "../../components/common/EmptyList";
 import { GetRequest } from "../../utils/httpRequest";
 import { Loader } from "../../utils/Loader";
 import Proptypes from "prop-types";
+import { UserContext } from "../../components/UserContext/UserContext";
+import { Navigate } from "react-router-dom";
 
 const Home = ({ search }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { userInfo } = useContext(UserContext);
 
   console.log(search);
 

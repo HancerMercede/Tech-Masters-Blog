@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { ThemeContext } from "./Theme";
-// import { MoonIcon, SunIcon } from "../DarkMode/icons";
-import "./Darkmode.css";
+
+import styles from "./Darkmode.module.css";
 
 const DarkMode = () => {
   const [{ isDark }, toogleTheme] = useContext(ThemeContext);
   return (
-    <div className="container">
-      <button onClick={toogleTheme} className="button">
+    <div className={styles.container}>
+      <button onClick={toogleTheme} className={styles.button}>
         {isDark ? <>🌓</> : <>☀️</>}
       </button>
     </div>

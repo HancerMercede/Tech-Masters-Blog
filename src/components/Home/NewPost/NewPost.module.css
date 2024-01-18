@@ -11,13 +11,13 @@
 .headerWrap {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-    text-align: center;
-    color: #0080ff;
+    margin-bottom: 10px;
+    color: var(--text_color);
     font-size: 1.5rem;
     margin-top: 2rem;
-
+    background-color: #dde4ec;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .input {
