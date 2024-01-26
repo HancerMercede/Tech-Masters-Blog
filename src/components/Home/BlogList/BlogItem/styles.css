@@ -1,26 +1,30 @@
 .blogItem-wrap {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .blogItem-cover {
-  width: 350px;
+  width: 370px;
   height: 310px;
   object-fit: cover;
-  border-radius: 20px;
-  margin-bottom: 0.5rem;
+  border-radius: 20px 0 20px 0;
+  margin-bottom: 0.7rem;
   transition: 0.2s;
   background-color: azure;
+
 }
 
 .blogItem-cover:hover {
   transform: scale(1.02, 1.02);
+  box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.2);
 }
 
 .blogItem-wrap h3 {
   margin: 0.5rem 0 0.2rem 0;
   flex: 1;
   color: var(--text_color);
+
 }
 
 .blogItem-desc {

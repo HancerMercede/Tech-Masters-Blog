@@ -82,11 +82,12 @@ export const NewPost = () => {
     <div className={styles.container}>
       <div className={styles.headerWrap}>
         <header>
-          <h1>Create a new post</h1>
+          <h1>POSTS</h1>
+          <p>Create new post.</p>
         </header>
       </div>
       <hr />
-      <form onSubmit={CreateNewPost}>
+      <form onSubmit={CreateNewPost} className={styles.form}>
         <input
           className={styles.input}
           type="text"

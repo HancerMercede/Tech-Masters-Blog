@@ -14,13 +14,14 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { Comment } from "../../components/comments/Comment";
 import { CommentList } from "../../components/comments/CommentList";
+import "animate.css";
 
 // Mocking the author picture.
 const authorAvatar = "/assets/images/author.jpg";
 
 // Setting the token
-// const token = localStorage.getItem("token");
-// const authToken = JSON.parse(token);
+const token = localStorage.getItem("token");
+const authToken = JSON.parse(token);
 
 // Mocking the subcategory.
 const subCategory = [
@@ -63,6 +64,7 @@ const PostDetails = () => {
           .delete(`http://localhost:3000/api/v1/posts/${post.id}`, {
             headers: {
               "Content-Type": "application/json",
+              Authorization: `Bearer ${authToken}`,
             },
             withCredentials: true,
           })
@@ -91,7 +93,7 @@ const PostDetails = () => {
     <>
       <div>
         {post ? (
-          <div className="blog-wrap">
+          <div className="blog-wrap animate__animated animate__fadeIn">
             <header>
               <p className="blog-date">Published {post.postdate}</p>
               <h1 className="blog-title">{post.title}</h1>

@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import { PostItem } from "./BlogItem/PostItem.jsx";
 import "./styles.css";
+import "animate.css";
 
 const PostList = ({ posts }) => {
   return (
-    <div className="blogList-wrap">
+    <div className="blogList-wrap animate__animated animate__fadeIn">
       {posts.map((post) => (
         <PostItem key={post.id} post={post} />
       ))}

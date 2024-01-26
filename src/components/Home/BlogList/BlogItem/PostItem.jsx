@@ -7,7 +7,7 @@ const authorAvatar = "/assets/images/author.jpg";
 
 export const PostItem = ({ post }) => {
   return (
-    <div className="blogItem-wrap">
+    <div className="blogItem-wrap ">
       <Link className="blogItem-link" to={`/blog/${post.id}`}>
         <img
           src={`http://localhost:3000/${post.cover}`}
@@ -30,7 +30,7 @@ export const PostItem = ({ post }) => {
           </div>
         </div>
         <Link className="blogItem-link-btn" to={`/blog/${post.id}`}>
-          Read
+          ▶️
         </Link>
       </footer>
     </div>

@@ -70,7 +70,7 @@ const Header = () => {
       <header className={styles.header_menu}>
         <div className={styles.Logo}>
           <Link to={"/"}>
-            TECH-MASTERS <span>🤖</span>
+            <span>🤖</span> TECH-MASTERS
           </Link>
         </div>
         <nav className={styles.nav_menu}>
