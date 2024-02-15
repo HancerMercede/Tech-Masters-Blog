@@ -30,6 +30,14 @@ export const Register = () => {
     data.append("username", username);
     data.append("password", password);
 
+    if (
+      firstName === "" ||
+      lastname === "" ||
+      username === "" ||
+      password === ""
+    ) {
+      return;
+    }
     axios
       .post("http://localhost:3000/Auth/register", data, {
         headers: {

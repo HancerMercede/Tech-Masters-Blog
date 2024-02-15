@@ -4,42 +4,13 @@ import { IoLogOutOutline } from "react-icons/io5";
 import styles from "./Header.module.css";
 import axios from "axios";
 import { MdOutlineLogin } from "react-icons/md";
-import { UserContext } from "../../UserContext/UserContext";
-import { useContext, useEffect } from "react";
-import { useState } from "react";
-import { Store } from "react-notifications-component";
+import { useEffect, useState } from "react";
 
 const Header = () => {
-  const { setUserInfo, userInfo } = useContext(UserContext);
   const [redirect, setRedirect] = useState(false);
+  const user = JSON.parse(localStorage.getItem("userinfo"));
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/auth/profile", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      })
-      .then((response) => {
-        setUserInfo(response.data.user);
-      })
-      .catch((err) =>
-        Store.addNotification({
-          title: "Information",
-          type: "info",
-          message: "The session has expired: " + err.message,
-          insert: "top",
-          container: "top-right",
-          animationIn: ["animate__animated animate__fadeIn"],
-          animationOut: ["animate__animated animate__fadeOut"],
-          dismiss: {
-            duration: 5000,
-            onScreen: true,
-          },
-        })
-      );
-  }, [setUserInfo]);
+  useEffect(() => {}, []);
 
   const logout = () => {
     axios
@@ -49,14 +20,10 @@ const Header = () => {
         },
         withCredentials: true,
       })
-      .then((response) => {
-        setUserInfo(null),
-          localStorage.setItem(
-            "userinfo",
-            JSON.stringify({ id: "", email: "" })
-          ),
-          localStorage.setItem("token", JSON.stringify(response.data.token));
+      .then(() => {
         setRedirect(true);
+        localStorage.removeItem("userinfo"), setRedirect(true);
+        localStorage.removeItem("token");
       });
   };
 
@@ -64,7 +31,7 @@ const Header = () => {
     <Navigate to={"/"} />;
   }
 
-  const username = userInfo?.name;
+  const username = user?.name;
   return (
     <>
       <header className={styles.header_menu}>

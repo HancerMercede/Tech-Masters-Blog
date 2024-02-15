@@ -29,9 +29,9 @@ export const Login = () => {
       .then((response) => {
         if (response) {
           const user = response.data;
-          localStorage.setItem("userinfo", JSON.stringify(response.data));
-          localStorage.setItem("token", JSON.stringify(response.data.token));
           setUserInfo(user);
+          localStorage.setItem("token", JSON.stringify(user.token));
+          localStorage.setItem("userinfo", JSON.stringify(response.data));
 
           setRedirect(true);
           Store.addNotification({

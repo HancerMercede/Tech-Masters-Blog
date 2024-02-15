@@ -4,6 +4,7 @@
     background: linear-gradient(to left, #3498DB, #21618C);
     padding: 40px;
     border-radius: 10px;
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.3);
 }
 
 .title {

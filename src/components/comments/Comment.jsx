@@ -26,12 +26,12 @@ export const Comment = ({ idPost, username }) => {
   };
 
   // This function verifies the token.
-  const verifyToken = (token) => {
+  const verifyToken = (authToken) => {
     axios
       .get(`${path}/auth`, {
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
+          Authorization: "Bearer " + authToken,
         },
       })
       .catch((err) => {

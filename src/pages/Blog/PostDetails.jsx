@@ -38,6 +38,7 @@ const PostDetails = () => {
   // const { setCommentList } = useContext(CommentContext);
   const { userInfo } = useContext(UserContext);
 
+  console.log(userInfo);
   useEffect(() => {
     setLoading(true);
     GetRequest(`/api/v1/posts/${id}`)
@@ -94,9 +95,9 @@ const PostDetails = () => {
       <div>
         {post ? (
           <div className="blog-wrap animate__animated animate__fadeIn">
-            <header>
+            <header className="animate__animated animate__fadeInDownBig">
               <p className="blog-date">Published {post.postdate}</p>
-              <h1 className="blog-title">{post.title}</h1>
+              <h1 className="blog-title ">{post.title}</h1>
               <div className="blog-subCategory">
                 {subCategory.map((category) => (
                   <Fragment key={category.id}>
