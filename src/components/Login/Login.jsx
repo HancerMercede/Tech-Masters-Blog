@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import styles from "./Login.module.css";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext/UserContext";
 import { Store } from "react-notifications-component";
 
@@ -85,7 +85,12 @@ export const Login = () => {
           className={styles.input}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className={styles.btn_primary}>Login</button>
+        <div className={styles.section_wrapper}>
+          <button className={styles.btn_primary}>Login</button>
+          <Link to="/Register" className={styles.link}>
+            Register
+          </Link>
+        </div>
       </form>
     </>
   );

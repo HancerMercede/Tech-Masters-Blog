@@ -47,3 +47,17 @@
     align-items: center;
     flex-direction: column;
 }
+
+
+.section_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.link {
+    text-decoration: none;
+    color: #eee;
+    text-align: center;
+    font-size: 14px;
+}

@@ -12,6 +12,7 @@ const authToken = JSON.parse(token);
 const path = "http://localhost:3000";
 
 export const Comment = ({ idPost, username }) => {
+  console.log(username);
   const [comment, setComment] = useState("");
   const { setCommentList } = useContext(CommentContext);
   const [redirect, setRedirect] = useState(false);

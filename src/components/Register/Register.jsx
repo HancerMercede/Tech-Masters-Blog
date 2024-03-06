@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import styles from "./Register.module.css";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -111,7 +111,12 @@ export const Register = () => {
           className={styles.input}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className={styles.btn_primary}>Register</button>
+        <div className={styles.section_wrapper}>
+          <button className={styles.btn_primary}>Register</button>
+          <Link to="/Login" className={styles.link}>
+            Back
+          </Link>
+        </div>
       </form>
     </>
   );

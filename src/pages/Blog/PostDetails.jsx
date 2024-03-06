@@ -35,10 +35,8 @@ const PostDetails = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [redirect, setRedirect] = useState(false);
-  // const { setCommentList } = useContext(CommentContext);
   const { userInfo } = useContext(UserContext);
 
-  console.log(userInfo);
   useEffect(() => {
     setLoading(true);
     GetRequest(`/api/v1/posts/${id}`)
@@ -140,9 +138,7 @@ const PostDetails = () => {
           <EmptyList />
         )}
       </div>
-      {userInfo?.email && (
-        <Comment idPost={post.id} username={userInfo?.email} />
-      )}
+      {userInfo?.email && <Comment idPost={id} username={userInfo?.email} />}
       <CommentList key={id} postId={id} />
     </>
   );
