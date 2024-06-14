@@ -6,6 +6,7 @@
   --link_color: navy;
   --text_color: #3a444d;
   --navbar_background: white;
+  --border_cover: 1px solid #282c34;
 }
 
 [data-theme="dark"] {

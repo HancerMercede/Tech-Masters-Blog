@@ -19,7 +19,7 @@ export const PostItem = ({ post }) => {
       <h3>{post.title}</h3>
       {/* <p
         className="blogItem-desc"
-        // dangerouslySetInnerHTML={{ __html: post.content }}
+        dangerouslySetInnerHTML={{ __html: post.content }}
       /> */}
       <footer>
         <div className="blogItem-author">

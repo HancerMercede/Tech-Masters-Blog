@@ -12,7 +12,7 @@
   margin-bottom: 0.7rem;
   transition: 0.2s;
   background-color: azure;
-
+  border: var(--border_cover);
 }
 
 .blogItem-cover:hover {
