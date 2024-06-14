@@ -10,10 +10,14 @@ const Home = ({ search }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+
+
     setLoading(true);
+
     const searchUrl = search
       ? `/api/v1/posts?search=${search}`
       : "/api/v1/posts";
+      
     GetRequest(searchUrl)
       .then((data) => {
         setPosts(data);

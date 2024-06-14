@@ -4,14 +4,12 @@ import { IoLogOutOutline } from "react-icons/io5";
 import styles from "./Header.module.css";
 import axios from "axios";
 import { MdOutlineLogin } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../../UserContext/UserContext";
 
 const Header = () => {
   const [redirect, setRedirect] = useState(false);
-  const user = JSON.parse(localStorage.getItem("userinfo"));
-
-  useEffect(() => {}, []);
-
+  const { userInfo, setUserInfo } = useContext(UserContext);
   const logout = () => {
     axios
       .post("http://localhost:3000/auth/logout", {
@@ -22,6 +20,7 @@ const Header = () => {
       })
       .then(() => {
         setRedirect(true);
+        setUserInfo({});
         localStorage.removeItem("userinfo"), setRedirect(true);
         localStorage.removeItem("token");
       });
@@ -31,13 +30,13 @@ const Header = () => {
     <Navigate to={"/"} />;
   }
 
-  const username = user?.name;
+  const username = userInfo?.name;
   return (
     <>
       <header className={styles.header_menu}>
         <div className={styles.Logo}>
           <Link to={"/"}>
-            <span>🤖</span> TECH-MASTERS
+            <span>🤖</span> HANCER TECH
           </Link>
         </div>
         <nav className={styles.nav_menu}>

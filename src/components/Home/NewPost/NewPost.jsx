@@ -10,6 +10,7 @@ import { Store } from "react-notifications-component";
 export const NewPost = () => {
   const token = localStorage.getItem("token");
   const authToken = JSON.parse(token);
+  const path = "http://localhost:3000";
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -18,6 +19,8 @@ export const NewPost = () => {
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const [redirectIfTokenHasExpired, setRedirectIfTokenHasExpired] =
+    useState(false);
 
   const handlerClear = () => {
     setTitle("");
@@ -27,6 +30,35 @@ export const NewPost = () => {
     setAuthor("");
     setContent("");
   };
+
+  // This function verifies the token.
+  const verifyToken = (authToken) => {
+    axios
+      .get(`${path}/auth`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + authToken,
+        },
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setRedirectIfTokenHasExpired(true);
+        Store.addNotification({
+          title: "Warning!",
+          type: "info",
+          message: "The session has expired: " + err.message,
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated animate__fadeIn"],
+          animationOut: ["animate__animated animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true,
+          },
+        });
+      });
+  };
+
   const CreateNewPost = async (e) => {
     const data = new FormData();
     data.append("title", title);
@@ -37,6 +69,8 @@ export const NewPost = () => {
     data.append("content", content);
 
     e.preventDefault();
+
+    verifyToken(authToken);
 
     axios
       .post("http://localhost:3000/api/v1/posts", data, {
@@ -76,6 +110,10 @@ export const NewPost = () => {
 
   if (redirect) {
     return <Navigate to="/" />;
+  }
+
+  if (redirectIfTokenHasExpired) {
+    return <Navigate to="/Login" />;
   }
 
   return (

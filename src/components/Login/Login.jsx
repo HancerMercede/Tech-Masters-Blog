@@ -3,7 +3,6 @@ import styles from "./Login.module.css";
 import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext/UserContext";
-import { Store } from "react-notifications-component";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -34,19 +33,6 @@ export const Login = () => {
           localStorage.setItem("userinfo", JSON.stringify(response.data));
 
           setRedirect(true);
-          Store.addNotification({
-            title: "Welcome again!",
-            type: "info",
-            message: "Welcome: " + username,
-            insert: "top",
-            container: "top-right",
-            animationIn: ["animate__animated animate__fadeIn"],
-            animationOut: ["animate__animated animate__fadeOut"],
-            dismiss: {
-              duration: 5000,
-              onScreen: true,
-            },
-          });
         }
       })
       .catch((err) => console.log(err.message));

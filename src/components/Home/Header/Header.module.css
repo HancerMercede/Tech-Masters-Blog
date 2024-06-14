@@ -3,13 +3,15 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 0 50px 0;
-    padding: 15px 20px;
+    padding: 25px 20px;
     background-color: transparent;
     position: fixed;
     width: 100%;
     top: 0;
     background-color: var(--navbar_background);
     z-index: 2;
+    /* border-bottom: 0.5px solid #282c34; */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .Logo {
@@ -34,6 +36,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .nav_menu_elements {

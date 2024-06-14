@@ -4,6 +4,7 @@ import "./styles.css";
 import "animate.css";
 
 const PostList = ({ posts }) => {
+  console.log(posts);
   return (
     <div className="blogList-wrap animate__animated animate__fadeIn">
       {posts.map((post) => (

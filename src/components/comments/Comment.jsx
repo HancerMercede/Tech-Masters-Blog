@@ -5,22 +5,23 @@ import propTypes from "prop-types";
 import { CommentContext } from "../CommentContext/CommentContext";
 import { Store } from "react-notifications-component";
 import { Navigate } from "react-router-dom";
+import { UserContext } from "../UserContext/UserContext";
 
 // Getting the token from local storage;
 const token = localStorage.getItem("token");
 const authToken = JSON.parse(token);
 const path = "http://localhost:3000";
 
-export const Comment = ({ idPost, username }) => {
-  console.log(username);
+export const Comment = ({ idPost }) => {
   const [comment, setComment] = useState("");
   const { setCommentList } = useContext(CommentContext);
-  const [redirect, setRedirect] = useState(false);
-
+  const [redirectIfTokenHasExpired, setRedirectIfTokenHasExpired] =
+    useState(false);
+  const { userInfo } = useContext(UserContext);
   const data = new FormData();
   data.append("idPost", idPost);
   data.append("content", comment);
-  data.append("username", username);
+  data.append("username", userInfo?.email);
 
   const handleClear = () => {
     setComment("");
@@ -37,7 +38,7 @@ export const Comment = ({ idPost, username }) => {
       })
       .catch((err) => {
         console.log(err.message);
-        setRedirect(true);
+        setRedirectIfTokenHasExpired(true);
         Store.addNotification({
           title: "Warning!",
           type: "info",
@@ -92,28 +93,30 @@ export const Comment = ({ idPost, username }) => {
     handleClear();
   };
 
-  if (redirect) {
+  if (redirectIfTokenHasExpired) {
     return <Navigate to={"/Login"} />;
   }
 
   return (
     <>
-      <div className={styles.container}>
-        <div>
-          <p>Comment and tell us what do you think.</p>
+      {userInfo?.email ? (
+        <div className={styles.container}>
+          <div>
+            <p>Comment and tell us what do you think.</p>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <textarea
+              className={styles.text_area}
+              type="text"
+              value={comment}
+              placeholder=" Your comment here..."
+              maxLength={500}
+              onChange={(e) => setComment(e.target.value)}
+            />
+            <input type="submit" value="Send" className={styles.button} />
+          </form>
         </div>
-        <form onSubmit={handleSubmit}>
-          <textarea
-            className={styles.text_area}
-            type="text"
-            value={comment}
-            placeholder=" Your comment here..."
-            maxLength={500}
-            onChange={(e) => setComment(e.target.value)}
-          />
-          <input type="submit" value="Send" className={styles.button} />
-        </form>
-      </div>
+      ) : null}
     </>
   );
 };
