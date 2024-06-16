@@ -17,7 +17,7 @@ const SearchBar = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search by category... "
+          placeholder="Search... "
           value={search ?? ""}
           onChange={(e) => {
             const value = e.target.value;

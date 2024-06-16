@@ -16,10 +16,13 @@ export const EditPost = () => {
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const [redirectIfTokenHasExpired, setRedirectIfTokenHasExpired] =
+    useState(false);
 
   const { id } = useParams();
   const token = localStorage.getItem("token");
   const authToken = JSON.parse(token);
+  const path = "http://localhost:3000";
 
   const handlerClear = () => {
     setTitle("");
@@ -57,6 +60,34 @@ export const EditPost = () => {
       );
   }, [id]);
 
+  // This function verifies the token.
+  const verifyToken = (authToken) => {
+    axios
+      .get(`${path}/auth`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + authToken,
+        },
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setRedirectIfTokenHasExpired(true);
+        Store.addNotification({
+          title: "Warning!",
+          type: "info",
+          message: "The session has expired: " + err.message,
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated animate__fadeIn"],
+          animationOut: ["animate__animated animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true,
+          },
+        });
+      });
+  };
+
   const handleUpdate = (e) => {
     e.preventDefault();
     const data = new FormData();
@@ -66,6 +97,8 @@ export const EditPost = () => {
     data.append("date", date);
     data.append("author", author);
     data.append("content", content);
+
+    verifyToken(authToken);
 
     axios
       .put(`http://localhost:3000/api/v1/posts/${id}`, data, {
@@ -105,6 +138,9 @@ export const EditPost = () => {
 
   if (redirect) {
     return <Navigate to="/" />;
+  }
+  if (redirectIfTokenHasExpired) {
+    return <Navigate to="/Login" />;
   }
 
   return (

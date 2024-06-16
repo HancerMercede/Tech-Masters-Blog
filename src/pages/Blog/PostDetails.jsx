@@ -83,7 +83,7 @@ const PostDetails = () => {
   const handleDelete = (ev) => {
     ev.preventDefault();
 
-    // verifyToken(authToken);
+    verifyToken(authToken);
 
     Swal.fire({
       title: "Are you sure?",
