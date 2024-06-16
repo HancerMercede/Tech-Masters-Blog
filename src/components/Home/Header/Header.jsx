@@ -45,7 +45,7 @@ const Header = () => {
               <>
                 <div className={styles.user_profile_section}>
                   <img
-                    src="/assets/images/Avatar.png"
+                    src="/assets/images/Perfil.jpg"
                     alt="Author"
                     className="profile-photo"
                   />

@@ -17,6 +17,7 @@ export const Comment = ({ idPost }) => {
   const { setCommentList } = useContext(CommentContext);
   const [redirectIfTokenHasExpired, setRedirectIfTokenHasExpired] =
     useState(false);
+
   const { userInfo } = useContext(UserContext);
   const data = new FormData();
   data.append("idPost", idPost);

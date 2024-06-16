@@ -23,15 +23,18 @@
     font-weight: bold;
     padding: 0 1.5rem 0 0;
     margin-top: 5px;
+    color: var(--text_color);
 }
 
 .comment_section .content {
     font-size: 14px;
     margin: 5px 0 0 0;
+    color: var(--text_color);
 }
 
 .comment_section .date {
     font-size: 12px;
+    color: var(--text_color);
 }
 
 
@@ -62,7 +65,7 @@
 }
 
 .comment_wrapper {
-    background: linear-gradient(to left, #d7dadd, #a7bfe8);
+    background: linear-gradient(to right, #3d96f0, #a7bfe8);
     padding: 8px;
     border-radius: 5px;
     margin: 5px 0;
