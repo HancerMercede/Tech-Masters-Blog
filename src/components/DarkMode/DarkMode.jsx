@@ -8,7 +8,7 @@ const DarkMode = () => {
   return (
     <div className={styles.container}>
       <button onClick={toogleTheme} className={styles.button}>
-        {isDark ? <>🌓</> : <>☀️</>}
+        {isDark ? <>🟡</> : <>⚪</> }
       </button>
     </div>
   );

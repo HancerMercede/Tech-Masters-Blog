@@ -4,17 +4,24 @@ import { useQuery } from "../hooks/useQuery";
 import DarkMode from "../components/DarkMode/DarkMode";
 import Home from "./Home/Home";
 
-/*Note: here we pass the search as a key to reutilized the components that we already has and pass the search by props to used in the child component */
+/*Note: here we pass the search as a key to utilize the components that we already has and pass the search by props to used in the child component */
 export const LandingPage = () => {
   const query = useQuery();
   const search = query.get("search");
 
   const debouncedSearch = useDebounce(search, 300);
   return (
-    <div>
-      <DarkMode />
-      <SearchBar />
-      <Home key={debouncedSearch} search={debouncedSearch} />
-    </div>
+      <>
+
+          <div className="hero">
+
+          </div>
+
+          <div className="container">
+              <SearchBar/>
+              <Home key={debouncedSearch} search={debouncedSearch}/>
+          </div>
+      </>
+
   );
 };

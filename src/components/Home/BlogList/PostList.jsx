@@ -4,13 +4,18 @@ import "./styles.css";
 import "animate.css";
 
 const PostList = ({ posts }) => {
-  console.log(posts);
   return (
-    <div className="blogList-wrap animate__animated animate__fadeIn">
-      {posts.map((post) => (
-        <PostItem key={post.id} post={post} />
-      ))}
-    </div>
+      <>
+        <div className="recent_post_title">
+          <h1>Most Recent Posts</h1>
+        </div>
+        <div className="blogList-wrap animate__animated animate__fadeIn">
+          {posts.map((post) => (
+              <PostItem key={post.id} post={post}/>
+          ))}
+        </div>
+      </>
+
   );
 };
 

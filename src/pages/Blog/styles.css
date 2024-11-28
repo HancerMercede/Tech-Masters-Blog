@@ -1,9 +1,10 @@
 .blog-wrap {
   max-width: 800px;
   margin: 0 auto;
-
 }
-
+.post_container{
+  margin-top: 10rem;
+}
 .blog-goBack {
   text-decoration: none;
   font-size: 0.8rem;
@@ -34,7 +35,9 @@
 
 .blog-wrap img {
   width: 100%;
+  height: auto;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 .blog-subCategory {
@@ -49,9 +52,10 @@
 .blog-desc {
   padding: 1rem;
   margin-top: 1.5rem;
-  line-height: 1.7;
+  line-height: 1.5;
   color: var(--text_color);
   text-align: justify;
+  white-space: pre-wrap;
 }
 
 .blog-link {

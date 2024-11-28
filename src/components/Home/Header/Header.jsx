@@ -1,82 +1,30 @@
 import { Link, Navigate } from "react-router-dom";
-import { PiNotePencilThin } from "react-icons/pi";
-import { IoLogOutOutline } from "react-icons/io5";
 import styles from "./Header.module.css";
-import axios from "axios";
-import { MdOutlineLogin } from "react-icons/md";
-import { useContext, useState } from "react";
-import { UserContext } from "../../UserContext/UserContext";
+import DarkMode from "../../DarkMode/DarkMode.jsx";
 
 const Header = () => {
-  const [redirect, setRedirect] = useState(false);
-  const { userInfo, setUserInfo } = useContext(UserContext);
-  const logout = () => {
-    axios
-      .post("http://localhost:3000/auth/logout", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      })
-      .then(() => {
-        setRedirect(true);
-        setUserInfo({});
-        localStorage.removeItem("userinfo"), setRedirect(true);
-        localStorage.removeItem("token");
-      });
-  };
-
-  if (redirect) {
-    <Navigate to={"/"} />;
-  }
-
-  const username = userInfo?.name;
   return (
     <>
       <header className={styles.header_menu}>
         <div className={styles.Logo}>
           <Link to={"/"}>
-            <span>🤖</span> HANCER TECH
+            <span>🤖</span> HM Development <span><p className="hero-title">Web Development and much more..</p></span>
           </Link>
         </div>
         <nav className={styles.nav_menu}>
           <ul className={styles.nav_menu_elements}>
-            {username && (
-              <>
-                <div className={styles.user_profile_section}>
-                  <img
-                    src="/assets/images/Perfil.jpg"
-                    alt="Author"
-                    className="profile-photo"
-                  />
-                  <li>{username}</li>
-                </div>
-                <li className={styles.Link_NewPost}>
-                  <Link to="/NewPost">
-                    <PiNotePencilThin size={20} />
-                    Write
-                  </Link>
-                </li>
-                <li>
-                  <button className={styles.Logout_btn} onClick={logout}>
-                    <IoLogOutOutline size={15} /> Logout
-                  </button>
-                </li>
-              </>
-            )}
-            {!username && (
-              <>
-                <li className={styles.Link_Login}>
-                  <Link to="/Login">
-                    <MdOutlineLogin size={15} />
-                    Login
-                  </Link>
-                </li>
-                <li className={styles.Link_NewPost}>
-                  <Link to="/Register">Register</Link>
-                </li>
-              </>
-            )}
+            <>
+
+              <li>
+               Blog
+              </li>
+              <li>
+                About
+              </li>
+              <li>
+                <DarkMode/>
+              </li>
+            </>
           </ul>
         </nav>
       </header>

@@ -51,7 +51,7 @@ export const CommentList = ({ postId }) => {
           ))
         ) : (
           <li className="no_comments comment_wrapper">
-            No comments yet for this post: {postId}
+            No comments yet for this post.
           </li>
         )}
       </div>

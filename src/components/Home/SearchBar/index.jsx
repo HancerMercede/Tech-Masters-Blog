@@ -24,9 +24,6 @@ const SearchBar = () => {
             history("/?search=" + value);
           }}
         />
-        {/* <button type="submit">
-          <span>🔎 Go</span>
-        </button> */}
       </form>
     </div>
   );

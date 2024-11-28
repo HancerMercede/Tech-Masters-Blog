@@ -7,16 +7,17 @@ import Header from "../components/Home/Header/Header";
 
 export const BlogRouter = () => {
   return (
-    <>
-      <Header />
-      <div className="container">
-        <Routes>
-          <Route path="/" exact Component={LandingPage} />
-          <Route path="/blog/:id" Component={PostDetails} />
-          <Route path="/NewPost" Component={NewPost} />
-          <Route path="/Edit/:id" Component={EditPost} />
-        </Routes>
-      </div>
-    </>
+      <>
+          <Header/>
+
+          <div>
+              <Routes>
+                  <Route path="/" exact Component={LandingPage}/>
+                  <Route path="/blog/:id" Component={PostDetails}/>
+                  <Route path="/NewPost" Component={NewPost}/>
+                  <Route path="/Edit/:id" Component={EditPost}/>
+              </Routes>
+          </div>
+      </>
   );
 };

@@ -1,28 +1,25 @@
 .header_menu {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    margin: 0 0 50px 0;
-    padding: 25px 20px;
-    background-color: transparent;
+    margin: 0 auto;
+    padding: 30px 20px;
     position: fixed;
     width: 100%;
     top: 0;
-    background-color: var(--navbar_background);
+    background-color: var(--darker_background);
     z-index: 2;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .Logo {
-    font-size: 1rem;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
 }
 
 
 .Logo a {
     text-decoration: none;
-    color: var(--text_color);
+    color: var(--logo_color);
 }
 
 .user_profile_section {
@@ -43,7 +40,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    color: var(--text_color);
+    color: var(--logo_color);
 }
 
 .nav_menu_elements a {
@@ -88,15 +85,24 @@
     background: linear-gradient(to right, #15e862, #a7bfe8);
 }
 
+li{
+    cursor: pointer;
+}
+
+
+
 @media screen and (max-width: 768px) {
     .Logo {
-        display: none;
+       text-align: center;
+        width: 100%;
     }
 
     .header_menu {
-        display: flex;
-        justify-content: right;
-        align-items: right;
+        display:flex;
+        justify-content: center;
         width: 100%;
+    }
+    .nav_menu_elements{
+        display: none;
     }
 }

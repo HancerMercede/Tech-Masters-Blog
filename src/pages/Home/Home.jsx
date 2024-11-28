@@ -5,22 +5,23 @@ import { GetRequest } from "../../utils/httpRequest";
 import { Loader } from "../../utils/Loader";
 import Proptypes from "prop-types";
 
+
 const Home = ({ search }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
 
-
     setLoading(true);
-
+    setLoading(false);
     const searchUrl = search
-      ? `/api/v1/posts?search=${search}`
-      : "/api/v1/posts";
-      
+      ? `/api/posts/?filters[title][$contains]=${search}&populate=*`
+      : "/api/posts/?populate=*";
+
     GetRequest(searchUrl)
       .then((data) => {
-        setPosts(data);
+          console.log(data);
+        setPosts(data.data);
         setLoading(false);
       })
       .catch((err) => console.log(err));
@@ -31,9 +32,10 @@ const Home = ({ search }) => {
   }
 
   return (
-    <>
-      <div>{!posts.length ? <EmptyList /> : <PostList posts={posts} />}</div>
-    </>
+      <>
+
+        <div>{!posts.length ? <EmptyList/> : <PostList posts={posts}/>}</div>
+      </>
   );
 };
 

@@ -2,19 +2,24 @@
 
 :root {
   --body_backround: white;
-  --body_color: black;
+  --body_color: #17202a;
   --link_color: navy;
-  --text_color: #3a444d;
+  --text_color: #161717;
   --navbar_background: white;
   --border_cover: 1px solid #282c34;
+  --card_background: #3b4249;
+  --darker_background: #3b4249;
+  --logo_color: #e9ecf1;
 }
 
 [data-theme="dark"] {
   --body_backround: #282c34;
   --body_color: white;
   --link_color: cyan;
-  --text_color: #F2F3F4;
+  --text_color: #dee3e7;
+  --logo_color: #e9ecf1;
   --navbar_background: #282c34;
+  --darker_background: #050a0d;
 }
 
 *,
@@ -42,4 +47,57 @@ input {
   width: 100%;
   margin: 0 auto;
   padding: 1rem 0;
+}
+
+.hero {
+  background: url(assets/images/nikita-kachanovsky-OVbeSXRk_9E-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height:45rem;
+}
+.hero-title {
+  width: 320px;
+  color: var(--logo_color);
+  animation: typing 2.5s steps(27) infinite alternate, blink .5s infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1rem;
+  margin-left: 4.2rem;
+  color: #0f52ba;
+}
+
+ .recent_post_title{
+   margin-bottom: 2rem;
+
+ }
+
+@keyframes typing {
+  from{
+    width: 0;
+  }
+}
+@keyframes blink {
+  50%{
+    border-color: transparent;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    display: none;
+  }
+  .hero-title{
+    margin-left: 1rem;
+    width: 50px;
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .searchBar-Wrap{
+    display: none;
+  }
+  .hero-title{
+    display: none;
+  }
 }
