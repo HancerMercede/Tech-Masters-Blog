@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Chip from "../../components/common/Chip";
 import EmptyList from "../../components/common/EmptyList";
 import "./styles.css";
-import { GetRequest} from "../../utils/httpRequest";
+import {GetCoverImage, GetRequest} from "../../utils/index";
 import { Loader } from "../../utils/Loader";
 import Markdown from 'react-markdown'
 import "highlight.js/styles/github.css";
@@ -61,7 +61,7 @@ const PostDetails = () => {
                 ))}
               </div>
             </header>
-            <img src={`http://localhost:1337/${post.cover.url}`} alt="cover" />
+            <img src={GetCoverImage(post.cover.url)} alt="cover" />
 
               <Markdown className="blog-desc">{post.content}</Markdown>
               <div className="blog-author">

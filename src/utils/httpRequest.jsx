@@ -11,14 +11,9 @@ const GetRequest = (path) => {
   }).then((result) => result.json());
 };
 
-const DeleteRequest = (path) => {
-  console.log(`${endpoint}${path}`);
-  axios.delete(`${endpoint}${path}`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    withCredentials: true,
-  });
-};
 
-export { GetRequest, DeleteRequest };
+const GetCoverImage = (url)=>
+{
+  return `${endpoint}${url}`
+}
+export { GetRequest, GetCoverImage };

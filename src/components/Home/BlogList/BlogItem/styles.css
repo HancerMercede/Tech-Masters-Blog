@@ -62,10 +62,10 @@
 .blogItem-link-btn {
   text-decoration: none;
   color: inherit;
-  padding: 0.2rem;
+  padding: 0.2rem 0.5rem;
   margin-right: 0.5rem;
   border-radius: 5px;
-  background: linear-gradient(to right, #0c0f11, #a7bfe8);
+  background: linear-gradient(to right, #0f52ba, #a7bfe8);
 }
 
 .blogItem-author {
@@ -84,7 +84,7 @@
   margin-right: 0.5rem;
 }
 .post-section{
-  padding: 0.3rem;
+  padding: 0.4rem;
   width: inherit;
 }
 

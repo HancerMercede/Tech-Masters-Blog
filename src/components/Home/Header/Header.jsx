@@ -16,7 +16,9 @@ const Header = () => {
             <>
 
               <li>
-               Blog
+                <Link to={"/"} className={styles.nav_menu_elements}>
+                  Blog
+                </Link>
               </li>
               <li>
                 About

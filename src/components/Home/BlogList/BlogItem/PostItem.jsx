@@ -3,7 +3,7 @@ import Chip from "../../../common/Chip/index";
 import "./styles.css";
 import { Link } from "react-router-dom";
 import Markdown from "react-markdown";
-
+import { GetCoverImage } from "../../../../utils/index";
 
 const authorAvatar = "/assets/images/author.jpg";
 
@@ -12,7 +12,7 @@ export const PostItem = ({ post }) => {
     <div id="#blog" className="blogItem-wrap ">
       <Link className="blogItem-link" to={`/blog/${post.id}`}>
         <img
-            src={`http://localhost:1337/${post.cover.url}`}
+            src={GetCoverImage(post.cover.url)}
             alt="cover"
             className="blogItem-cover"
         />
@@ -34,7 +34,7 @@ export const PostItem = ({ post }) => {
 
         </div>
         <Link className="blogItem-link-btn" to={`/blog/${post.id}`}>
-          More ▶
+          ▶▶
         </Link>
       </footer>
     </div>
