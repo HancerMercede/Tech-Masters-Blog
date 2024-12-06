@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { LandingPage } from "../pages/LandingPage";
-import PostDetails from "../pages/Blog/PostDetails";
+import PostDetails from "../pages/Post/PostDetails";
 import { NewPost } from "../components/Home/NewPost/NewPost";
 import { EditPost } from "../components/EditPost/EditPost";
 import Header from "../components/Home/Header/Header";
@@ -9,7 +9,6 @@ export const BlogRouter = () => {
   return (
       <>
           <Header/>
-
           <div>
               <Routes>
                   <Route path="/" exact Component={LandingPage}/>

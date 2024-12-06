@@ -3,7 +3,7 @@
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 1.5rem 0.5rem;
     position: fixed;
     width: 100%;
     top: 0;
@@ -89,18 +89,10 @@ li{
     cursor: pointer;
 }
 
-
-
 @media screen and (max-width: 768px) {
-    .Logo {
-       text-align: center;
-        width: 100%;
-    }
-
     .header_menu {
         display:flex;
-        justify-content: center;
-        width: 100%;
+        text-align: center;
     }
     .nav_menu_elements{
         display: none;

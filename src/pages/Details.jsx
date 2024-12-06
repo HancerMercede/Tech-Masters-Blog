@@ -1,4 +1,4 @@
-import { PostDetails } from "../pages/Blog/PostDetails";
+import { PostDetails } from "./Post/PostDetails";
 
 export const Details = () => {
   return <PostDetails />;

@@ -1,4 +1,4 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import styles from "./Header.module.css";
 import DarkMode from "../../DarkMode/DarkMode.jsx";
 
@@ -8,7 +8,7 @@ const Header = () => {
       <header className={styles.header_menu}>
         <div className={styles.Logo}>
           <Link to={"/"}>
-            <span>🤖</span> HM Development <span><p className="hero-title">Web Development and much more..</p></span>
+            <span>🤖</span> HM Development <span><p className="hero-title">Web Development and more..</p></span>
           </Link>
         </div>
         <nav className={styles.nav_menu}>

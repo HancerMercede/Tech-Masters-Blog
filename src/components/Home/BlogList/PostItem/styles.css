@@ -8,15 +8,13 @@
 }
 
 .blogItem-cover {
-  width: 100%
-;
-  height: 310px;
+  width: 100%;
+  height: 250px;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
   margin-bottom: 0.7rem;
   transition: 0.2s;
   background-color: azure;
-
 }
 
 .blogItem-cover:hover {
@@ -37,7 +35,7 @@
   overflow: hidden;
   padding-right: 0.6rem;
   font-size: 0.8rem;
-  color: #a9a9a9;
+  color: var(--content_color)
 }
 
 .blogItem-desc::before {
@@ -90,6 +88,6 @@
 
 .blogItem-author p {
   font-size: 0.6rem;
-  color: #a9a9a9;
+  color: var(--content_color);
   font-weight: 600;
 }

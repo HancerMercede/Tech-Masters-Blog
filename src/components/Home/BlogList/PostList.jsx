@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { PostItem } from "./BlogItem/PostItem.jsx";
+import { PostItem } from "./PostItem/PostItem.jsx";
 import "./styles.css";
 import "animate.css";
 

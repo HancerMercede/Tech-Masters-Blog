@@ -7,9 +7,10 @@
   --text_color: #161717;
   --navbar_background: white;
   --border_cover: 1px solid #282c34;
-  --card_background: #3b4249;
+  --card_background: #aeb6bf;
   --darker_background: #3b4249;
   --logo_color: #e9ecf1;
+  --content_color: #566573;
 }
 
 [data-theme="dark"] {
@@ -20,6 +21,8 @@
   --logo_color: #e9ecf1;
   --navbar_background: #282c34;
   --darker_background: #050a0d;
+  --card_background: #3b4249;
+  --content_color: #abb2b9 ;
 }
 
 *,
@@ -33,7 +36,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--body_backround);
   color: var(--body_color);
-  margin-top: 7rem;
+  /*margin-top: 7rem;*/
   /*This line is new added by Hancer to separate the header from body 2024-01-12*/
 }
 
@@ -50,14 +53,14 @@ input {
 }
 
 .hero {
-  background: url(assets/images/nikita-kachanovsky-OVbeSXRk_9E-unsplash.jpg);
+  background: url(assets/images/Hero.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  height:50rem;
+  background-position:  center center;
+  height: 50rem;
 }
 .hero-title {
-  width: 320px;
+  width: 300px;
   color: var(--logo_color);
   animation: typing 2.5s steps(27) infinite alternate, blink .5s infinite;
   white-space: nowrap;
@@ -69,7 +72,7 @@ input {
 
  .recent_post_title{
    margin-bottom: 2rem;
-
+   width: inherit;
  }
 
 @keyframes typing {
@@ -88,16 +91,10 @@ input {
     display: none;
   }
   .hero-title{
-    margin-left: 1rem;
-    width: 50px;
+   max-width: 250px;
+  }
+  .recent_post_title{
+    text-align: center;
   }
 
-}
-@media screen and (max-width: 768px) {
-  .searchBar-Wrap{
-    display: none;
-  }
-  .hero-title{
-    display: none;
-  }
 }
