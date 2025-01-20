@@ -9,7 +9,7 @@ const PostList = ({ posts }) => {
         <div className="recent_post_title">
           <h1>Most Recent Posts</h1>
         </div>
-        <div className="blogList-wrap animate__animated animate__fadeIn">
+        <div className="blogList-wrap animate__animated animate__pulse">
           {posts.map((post) => (
               <PostItem key={post.id} post={post}/>
           ))}

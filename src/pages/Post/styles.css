@@ -31,6 +31,8 @@
 
 .blog-title {
   color: var(--text_color);
+  font-size: 2.5rem;
+  font-weight: 900;
 }
 
 .blog-wrap img {
@@ -43,6 +45,7 @@
 .blog-subCategory {
   display: flex;
   justify-content: center;
+
 }
 
 .blog-subCategory>div {
@@ -69,6 +72,7 @@
 .blog-author {
   display: flex;
   align-items: center;
+  margin: 1rem auto;
 }
 
 .blog-author img {

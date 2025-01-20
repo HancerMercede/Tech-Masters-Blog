@@ -3,19 +3,34 @@
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
-    padding: 1.5rem 0.5rem;
+    padding: 1rem 0.5rem;
     position: fixed;
     width: 100%;
     top: 0;
-    background-color: var(--darker_background);
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
     z-index: 2;
 }
-
+.navbar-blurred {
+    background: rgba(255, 255, 255, 0.5);
+}
 .Logo {
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 1.2rem;
 }
 
+.profile{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.wraper{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
 
 .Logo a {
     text-decoration: none;

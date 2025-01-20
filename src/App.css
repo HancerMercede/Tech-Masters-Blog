@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Londrina+Solid:wght@100;300;400;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 :root {
   --body_backround: white;
   --body_color: #17202a;
@@ -34,7 +34,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--body_backround);
+  background: linear-gradient(to right, #1C2833, #050a0d);
   color: var(--body_color);
   /*margin-top: 7rem;*/
   /*This line is new added by Hancer to separate the header from body 2024-01-12*/
@@ -48,20 +48,12 @@ input {
 .container {
   max-width: 1200px;
   width: 100%;
-  margin: 0 auto;
+  margin: 5rem auto;
   padding: 1rem 0;
 }
 
-.hero {
-  background: url(assets/images/Hero.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position:  center center;
-  height: 50rem;
-}
 .hero-title {
   width: 300px;
-  color: var(--logo_color);
   animation: typing 2.5s steps(27) infinite alternate, blink .5s infinite;
   white-space: nowrap;
   overflow: hidden;
@@ -71,8 +63,13 @@ input {
 }
 
  .recent_post_title{
-   margin-bottom: 2rem;
+   margin: 4rem auto;
    width: inherit;
+   text-align: center;
+ }
+ .recent_post_title h1{
+   font-size: 3.5rem;
+   font-weight: 900;
  }
 
 @keyframes typing {
@@ -91,7 +88,10 @@ input {
     display: none;
   }
   .hero-title{
-   max-width: 250px;
+    max-width: 250px;
+    white-space: nowrap;
+    margin-left: 3rem;
+
   }
   .recent_post_title{
     text-align: center;

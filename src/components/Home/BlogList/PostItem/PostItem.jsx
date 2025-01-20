@@ -4,7 +4,7 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 import Markdown from "react-markdown";
 import { GetCoverImage } from "../../../../utils/index";
-
+import perfileImg from '../../../../../../tech-masters/public/assets/images/profile.jpeg';
 const authorAvatar = "/assets/images/author.jpg";
 
 export const PostItem = ({ post }) => {
@@ -26,16 +26,13 @@ export const PostItem = ({ post }) => {
       </div>
       <footer>
         <div className="blogItem-author">
-          <img src={authorAvatar} alt="avatar" />
+          <img src={perfileImg} alt="avatar" />
           <div>
             <h6>{post.username}</h6>
             <p>{post.Date}</p>
           </div>
 
         </div>
-        <Link className="blogItem-link-btn" to={`/blog/${post.id}`}>
-          ▶▶
-        </Link>
       </footer>
     </div>
   );

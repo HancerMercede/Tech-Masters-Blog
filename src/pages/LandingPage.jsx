@@ -18,7 +18,7 @@ export const LandingPage = () => {
           </div>
 
           <div className="container">
-              <SearchBar/>
+              {/*<SearchBar/>*/}
               <Home key={debouncedSearch} search={debouncedSearch}/>
           </div>
       </>

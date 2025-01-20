@@ -9,6 +9,7 @@ import Markdown from 'react-markdown'
 import "highlight.js/styles/github.css";
 import { Fragment } from "react";
 import "animate.css";
+import perfileImg from '../../../public/assets/images/profile.jpeg';
 
 // Mocking the author picture.
 const authorAvatar = "/assets/images/author.jpg";
@@ -65,7 +66,7 @@ const PostDetails = () => {
 
               <Markdown className="blog-desc">{post.content}</Markdown>
               <div className="blog-author">
-                  <img src={authorAvatar} alt="avatar"/>
+                  <img src={perfileImg} alt="avatar"/>
                   <div>
                       <h6>{post.username}</h6>
                 <p>{post.Date}</p>
